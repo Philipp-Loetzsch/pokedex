@@ -6,9 +6,15 @@
     <title>Pokedex</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <script src="style.css"></script>
+    <link rel="stylesheet" href="./css/idStyle.css">
+    <link rel="stylesheet" href="./css/bgColors.css">
+    <link rel="stylesheet" href="./css/overviewCard.css">
+    <link rel="stylesheet" href="./css/detailCard.css">
+    <script src="script.js"></script>
+    <script src="./javascript/templates.js"></script>
+    <script src="./javascript/filter.js"></script>
   </head>
-  <body>
+  <body onload="fetchDataJson()">
     <header>
       <h1>Pokedex</h1>
       <form>
@@ -17,7 +23,8 @@
       </form>
     </header>
     <main>
-        
+        <section id="content">          
+        </section>
     </main>
     <footer>
       <span>&copy; 2024 Philipp Lötzsch</span>

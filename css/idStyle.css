@@ -1,0 +1,8 @@
+#content{
+    max-width: 2000px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 24px;
+    box-sizing: border-box;
+}

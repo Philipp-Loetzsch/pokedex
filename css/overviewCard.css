@@ -1,0 +1,30 @@
+.poke-card{
+    height: 300px;
+    width: 180px;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+}
+.name{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 100%;
+    height: 15%;
+}
+.poke-pic{
+    background-color: green;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 65%;
+    img{
+        width: 100%;
+    }
+}
+.poke-type{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
