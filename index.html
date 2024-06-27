@@ -4,27 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/img/pokeball.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./css/idStyle.css">
-    <link rel="stylesheet" href="./css/bgColors.css">
-    <link rel="stylesheet" href="./css/overviewCard.css">
-    <link rel="stylesheet" href="./css/detailCard.css">
+    <link rel="stylesheet" href="./css/idStyle.css" />
+    <link rel="stylesheet" href="./css/bgColors.css" />
+    <link rel="stylesheet" href="./css/overviewCard.css" />
+    <link rel="stylesheet" href="./css/detailCard.css" />
+    <link rel="stylesheet" href="./css/templates.css">
     <script src="script.js"></script>
     <script src="./javascript/templates.js"></script>
     <script src="./javascript/filter.js"></script>
+    <script src="./javascript/buttonsShow.js"></script>
   </head>
   <body onload="fetchDataJson()">
     <header>
       <h1>Pokedex</h1>
-      <form>
-        <input type="text" minlength="3" id="searchPokemon" />
+      <form onsubmit="showAmount(); return false">
+        <input type="number" id="amountOfPokemon" placeholder="Hier gewünschte Pokemonnummer eintragen" />
+        <button type="submit">Show</button>
+      </form>
+      <form onsubmit="return false">
+        <input type="text" minlength="3" id="searchPokemon" placeholder="Hier Suchbefehl eingeben"/>
         <button>Suchen</button>
       </form>
     </header>
     <main>
-        <section id="content">          
-        </section>
+      <section id="content"></section>
+      <section id="loadingScreen"> <div id="spinner"><img src="./assets/img/Filling broken wheel.gif" alt=""> </div></section>
+      <section id="detailContent" class="d-none" onclick="closeDetailedCard()"></section>
+      <button onclick="showMore()">zeige mehr</button>
     </main>
     <footer>
       <span>&copy; 2024 Philipp Lötzsch</span>
