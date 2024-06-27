@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="./css/bgColors.css" />
     <link rel="stylesheet" href="./css/overviewCard.css" />
     <link rel="stylesheet" href="./css/detailCard.css" />
-    <link rel="stylesheet" href="./css/templates.css">
-    <link rel="stylesheet" href="./css/indexMedia.css">
+    <link rel="stylesheet" href="./css/templates.css" />
+    <link rel="stylesheet" href="./css/indexMedia.css" />
+    <link rel="stylesheet" href="./css/pokeball.css" />
     <script src="script.js"></script>
     <script src="./javascript/templates.js"></script>
     <script src="./javascript/filter.js"></script>
@@ -25,18 +26,39 @@
     <header>
       <h1>Pokedex</h1>
       <form onsubmit="showAmount(); return false">
-        <input type="number" id="amountOfPokemon" placeholder="Hier gewünschte Pokemonnummer eintragen" />
+        <label >Hier Nummer des gewünschten Pokemons eingeben (max 649)</label>
+        <input
+          type="number"
+          min="1"
+          max="649"
+          id="amountOfPokemon"
+          placeholder="#No"
+        />
         <button type="submit">Show</button>
       </form>
       <form onsubmit="return false">
-        <input type="text" minlength="3" id="searchPokemon" placeholder="Hier Suchbefehl eingeben"/>
+        <input
+          type="text"
+          minlength="3"
+          id="searchPokemon"
+          placeholder="Hier Suchbefehl eingeben"
+        />
         <button>Suchen</button>
       </form>
     </header>
     <main>
       <section id="content"></section>
-      <section id="loadingScreen"> <div id="spinner"><img src="./assets/img/Filling broken wheel.gif" alt=""> </div></section>
-      <section id="detailContent" class="d-none" onclick="closeDetailedCard()"></section>
+      <section id="loadingScreen">
+        <div class="wrapper">
+          <div class="pokeball"></div>
+        </div>
+        <!-- <div id="spinner"><img src="./assets/img/Filling broken wheel.gif" alt=""> </div> -->
+      </section>
+      <section
+        id="detailContent"
+        class="d-none"
+        onclick="closeDetailedCard()"
+      ></section>
       <button onclick="showMore()">zeige mehr</button>
     </main>
     <footer>
