@@ -9,6 +9,10 @@ body {
   cursor: default;
 }
 header {
+  z-index: 9;
+  position: sticky;
+  background-color: rgb(38, 38, 104);
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,7 +28,6 @@ main {
   flex: 1;
   box-shadow: 0px -2px 4px 0 rgba(255, 255, 255, 0.5) inset;
   width: 100%;
-  
 }
 footer {
   min-height: 100px;
@@ -40,6 +43,6 @@ h1 {
 }
 
 /* all buttons */
-button{
+button {
   cursor: pointer;
 }

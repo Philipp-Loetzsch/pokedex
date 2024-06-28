@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokedex</title>
+    <title>Pokédex</title>
     <link
       rel="shortcut icon"
       href="./assets/img/pokeball.png"
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="./css/templates.css" />
     <link rel="stylesheet" href="./css/indexMedia.css" />
     <link rel="stylesheet" href="./css/pokeball.css" />
+    <link rel="stylesheet" href="./css/header.css" />
     <script src="script.js"></script>
     <script src="./javascript/templates.js"></script>
     <script src="./javascript/filter.js"></script>
@@ -24,17 +25,25 @@
   </head>
   <body onload="fetchDataJson()">
     <header>
-      <h1>Pokedex</h1>
-      <form onsubmit="showAmount(); return false">
-        <label >Hier Nummer des gewünschten Pokemons eingeben (max 649)</label>
-        <input
-          type="number"
-          min="1"
-          max="649"
-          id="amountOfPokemon"
-          placeholder="#No"
-        />
-        <button type="submit">Show</button>
+      <h1>Pokédex</h1>
+      <form id="inputNumber" onsubmit="showAmount(); return false">
+        <label
+          > <span>Hier Nummer des gewünschten Pokemons eingeben </span>
+          <span>(max 649)</span></label
+        >
+        <div class="search">
+          <input
+            type="number"
+            min="1"
+            max="649"
+            id="amountOfPokemon"
+            placeholder="#No"
+            required
+          />
+          <button type="submit" title="Anzeigen">
+            <img src="./assets/img/eye.png" alt="" />
+          </button>
+        </div>
       </form>
       <form onsubmit="return false">
         <input
@@ -52,7 +61,6 @@
         <div class="wrapper">
           <div class="pokeball"></div>
         </div>
-        <!-- <div id="spinner"><img src="./assets/img/Filling broken wheel.gif" alt=""> </div> -->
       </section>
       <section
         id="detailContent"

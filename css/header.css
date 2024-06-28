@@ -1,0 +1,21 @@
+.search{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    input{
+        background-color: rgb(198, 145, 214);
+        border-radius: 30px;
+        border: none;
+        padding: 4px;
+        font-size: 24px;
+        text-align: center;
+        color: white;
+    }
+    ::placeholder{
+        color: white;
+    }
+    button{
+        background-color: transparent;
+        border:none;
+     }
+}
