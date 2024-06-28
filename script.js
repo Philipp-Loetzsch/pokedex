@@ -2,18 +2,24 @@ let overviewCards = [];
 let count = 0;
 
 async function fetchDataJson() {
-  let response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`
-  );
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
   let responseAsJson = await response.json();
   let pokemon = responseAsJson.results;
+  fetchCardValuesJson(pokemon);
+}
 
+async function fetchCardValuesJson(pokemon){
   for (i = 0; i < pokemon.length; i++) {
-    let pokeType = [];
-    let pokeStats = [];
-    let pokeValues = [];
     let choosePokemon = await fetch(pokemon[i].url);
     let choosePokemonAsJson = await choosePokemon.json();
+    /* Arrays Abilities */
+    let pokeType = [];
+    choosePokemonAsJson.types.forEach((item) => {pokeType.push(item.type.name);});
+    let pokeStats = [];
+    choosePokemonAsJson.stats.forEach((item) => {pokeStats.push(item.stat.name);});
+    let pokeValues = [];
+    choosePokemonAsJson.stats.forEach((item) => {pokeValues.push(item.base_stat);});
+    /* edit JsonArray Pokemom of all needed Values */
     let newCard = {
       id: choosePokemonAsJson.id,
       pokename: pokemon[i].name,
@@ -22,15 +28,7 @@ async function fetchDataJson() {
       statsValues: pokeValues,
       statsName: pokeStats,
     };
-    choosePokemonAsJson.types.forEach((item) => {
-      pokeType.push(item.type.name);
-    });
-    choosePokemonAsJson.stats.forEach((item) => {
-      pokeStats.push(item.stat.name);
-    });
-    choosePokemonAsJson.stats.forEach((item) => {
-      pokeValues.push(item.base_stat);
-    });
+    /* push JSON in global Array */
     overviewCards.push(newCard);
   }
   document.getElementById("loadingScreen").classList.add("d-none");
