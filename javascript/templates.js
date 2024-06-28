@@ -12,12 +12,29 @@ function cardContent(i) {
        </div>
 `;
 }
+
+function detailCardContent() {
+  return /* html */ ` 
+  <div class="poke-detail">
+   <div class="name">
+    <div># 1</div>
+    <div>Bisasam</div>
+   </div>
+    <div class="poke-pic bg_${overviewCards[i].type[0]}">
+    <img src="" alt="Pokemon" />
+    </div>
+   <div class="poke-type"></div>
+  </div>`;
+}
+
 function showDetailedCard() {
   document.getElementById(`detailContent`).classList.remove("d-none");
+  document.getElementById(`detailContent`).classList.add("d-flex");
   document.body.classList.add("ofy-h");
+  
 }
 function closeDetailedCard() {
-    document.getElementById(`detailContent`).classList.add("d-none");
-    document.body.classList.remove("ofy-h");
-  }
-  
+  document.getElementById(`detailContent`).classList.add("d-none");
+  document.getElementById(`detailContent`).classList.remove("d-flex");
+  document.body.classList.remove("ofy-h");
+}

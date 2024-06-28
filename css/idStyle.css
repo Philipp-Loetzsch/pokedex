@@ -25,6 +25,8 @@
   width: 100%;
   top: 0;
   background-color: rgba(122, 113, 113, 0.288);
+  align-items: center;
+  justify-content: center;
 }
 #loadingScreen {
   z-index: 999;

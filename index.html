@@ -27,8 +27,8 @@
     <header>
       <h1>Pokédex</h1>
       <form id="inputNumber" onsubmit="showAmount(); return false">
-        <label
-          > <span>Hier Nummer des gewünschten Pokemons eingeben </span>
+        <label>
+          <span>Hier Nummer des gewünschten Pokemons eingeben </span>
           <span>(max 649)</span></label
         >
         <div class="search">
@@ -45,7 +45,7 @@
           </button>
         </div>
       </form>
-      <form onsubmit="return false">
+      <form onsubmit="return false" class="search">
         <input
           type="text"
           minlength="3"
@@ -62,11 +62,18 @@
           <div class="pokeball"></div>
         </div>
       </section>
-      <section
-        id="detailContent"
-        class="d-none"
-        onclick="closeDetailedCard()"
-      ></section>
+      <section id="detailContent" class="d-none" onclick="closeDetailedCard()">
+        <div class="poke-detail">
+        <div class="name">
+          <div># 1</div>
+          <div>Bisasam</div>
+        </div>
+        <div class="poke-pic bg_${overviewCards[i].type[0]}">
+          <img src="" alt="Pokemon" />
+        </div>
+        <div class="poke-type"></div>
+      </div>
+      </section>
       <button onclick="showMore()">zeige mehr</button>
     </main>
     <footer>

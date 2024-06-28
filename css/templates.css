@@ -1,6 +1,9 @@
 .d-none{
     display: none;
 }
+.d-flex{
+    display: flex;
+}
 .ofy-h{
     overflow-y: hidden;
 }
