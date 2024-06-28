@@ -4,6 +4,9 @@
     width: 600px;
     border-radius: 20px;
 }
+.name-detail{
+  font-size: 42px;
+}
 .poke-pic-detail {
     display: flex;
     justify-content: center;

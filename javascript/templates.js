@@ -16,7 +16,7 @@ function cardContent(i) {
 function detailCardContent(i) {
   return /* html */ ` 
   <div class="poke-detail" onclick="event.stopPropagation()" >
-   <div class="name">
+   <div class="name-detail">
     <div># ${overviewCards[i].id}</div>
     <div>${overviewCards[i].pokename}</div>
    </div>
