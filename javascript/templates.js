@@ -16,28 +16,28 @@ function cardContent(i) {
 function detailCardContent(i) {
   return /* html */ ` 
   <div class="poke-detail" onclick="event.stopPropagation()" >
-   <div class="name-detail">
-    <div># ${overviewCards[i].id}</div>
-    <div>${overviewCards[i].pokename}</div>
-   </div>
+    <div class="detail-header"> 
+     <div class="name-detail">
+      <div># ${overviewCards[i].id}</div>
+      <div>${overviewCards[i].pokename}</div>
+     </div>
+     <button onclick="closeDetailedCard()">X</button>
+    </div>
     <div class="poke-pic-detail bg_${overviewCards[i].type[0]}">
       ${overviewCards[i].image}
     </div>
     <div class="card-menu"> 
-        <button>Stats</button>
-        <button>Vorkommen</button>
-        <button>Entwicklungsstufen</button>
+        <button onclick="showAbilities('0',${i})" >Stats</button>
+        <button onclick="showAbilities('1',${i})">Attacken</button>
+        <button onclick="showAbilities('2',${i})">Entwicklungsstufen</button>
     </div>
-    <div class="stats">
-   <div class="poke-stats-name" id="statsName${i}"></div>
-   <div class="poke-stats-value " id="statsValue${i}"></div>
-   </div>
+    <div id="abilities"></div>
   </div>`;
 }
 
 function showDetailedCard(i) {
-  document.getElementById("detailContent").innerHTML =  detailCardContent(i);
- showStats(i)
+  document.getElementById("detailContent").innerHTML = detailCardContent(i);
+  showAbilities("0", i);
   document.getElementById(`detailContent`).classList.remove("d-none");
   document.getElementById(`detailContent`).classList.add("d-flex");
   document.body.classList.add("ofy-h");
@@ -48,9 +48,3 @@ function closeDetailedCard() {
   document.body.classList.remove("ofy-h");
 }
 
-function showStats(i){
- let pokeStatName = document.getElementById(`statsName${i}`);
- let pokeStatValue = document.getElementById(`statsValue${i}`);
-overviewCards[i].statsName.forEach(item => {pokeStatName.innerHTML += /* html */`<div>${item} </div>`;});
-overviewCards[i].statsValues.forEach(item => {pokeStatValue.innerHTML += /* html */`<div>${item} </div>`;});
-}

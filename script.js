@@ -1,9 +1,15 @@
 let overviewCards = [];
 let count = 0;
+let showAbilitienNumber = 0;
+let actualDetailNumber = 0;
 
 async function fetchDataJson() {
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
   let responseAsJson = await response.json();
+  let evolution = await fetch("https://pokeapi.co/api/v2/evolution-chain/1/")
+  let evolutionAsJson = await evolution.json();
+
+  console.log(evolutionAsJson);
   let pokemon = responseAsJson.results;
   fetchCardValuesJson(pokemon);
 }
@@ -19,14 +25,17 @@ async function fetchCardValuesJson(pokemon){
     choosePokemonAsJson.stats.forEach((item) => {pokeStats.push(item.stat.name);});
     let pokeValues = [];
     choosePokemonAsJson.stats.forEach((item) => {pokeValues.push(item.base_stat);});
+    let pokeMoves= []
+    choosePokemonAsJson.moves.forEach((item) => {pokeMoves.push(item.move.name);});
     /* edit JsonArray Pokemom of all needed Values */
     let newCard = {
       id: choosePokemonAsJson.id,
       pokename: pokemon[i].name,
       image: `<img src="${choosePokemonAsJson.sprites.other.dream_world.front_default}" alt="Pokemon" />`,
       type: pokeType,
-      statsValues: pokeValues,
       statsName: pokeStats,
+      statsValues: pokeValues,
+      moveName : pokeMoves,
     };
     /* push JSON in global Array */
     overviewCards.push(newCard);

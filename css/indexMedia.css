@@ -8,3 +8,10 @@
     justify-content: center;
   }
 }
+@media screen and (max-width: 600px) {
+  .poke-detail{
+    height: 100%;
+    border-radius: 0;
+  }
+  
+}
