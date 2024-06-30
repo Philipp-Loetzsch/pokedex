@@ -1,15 +1,27 @@
 function showAttacks(i) {
     document.getElementById("abilities").innerHTML = attacksContent();
-    let pokeAttackName = document.getElementById(`attacksName`);
-    /* let pokeAttackValue = document.getElementById(`attackValue${i}`); */
-    overviewCards[i].moveName.forEach((item) => {pokeAttackName.innerHTML += /* html */ `<div>${item} </div>`;});
-    /* overviewCards[i].statsValues.forEach((item) => {pokeStatValue.innerHTML += `<div>${item} </div>`;}); */
+    loadAttacks(i);
   }
 
   function attacksContent() {
     return /* html */ ` 
-  <div class="attacks">
-    <div class="poke-attack-name" id="attacksName"></div>
-   <!--  <div class="poke-stats-value " id="statsValue"></div> -->
-  </div>`;
+  <table id="attacks"></table>`;
+  }
+
+  function loadAttacks(i){
+    let pokeMove = overviewCards[i]
+    console.log(pokeMove);
+    let attacks = document.getElementById('attacks')
+    for (j = 0; j< pokeMove.moveName.length; j++){
+     let pokeAttackName = pokeMove.moveName[j];
+     /* let pokeStatValue = pokeStats.statsValues[j]; */
+     attacks.innerHTML += loadAttacksHtml(j, pokeAttackName);
+    }  
+  }
+
+  function loadAttacksHtml(j, pokeAttackName){
+    return /* html */ `
+    <tr class="stat-content">
+      <td> <span>${pokeAttackName}</span> </td>
+    </tr>`;
   }

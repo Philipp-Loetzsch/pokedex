@@ -5,14 +5,17 @@ let showAbilitienNumber = 0;
 let actualDetailNumber = 0;
 
 async function fetchDataJson() {
-  let response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`
-  );
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
   let responseAsJson = await response.json();
+
   let evolution = await fetch("https://pokeapi.co/api/v2/evolution-chain/107/");
   let evolutionAsJson = await evolution.json();
-
   console.log(evolutionAsJson);
+
+  let moves = await fetch("https://pokeapi.co/api/v2/move/13/")
+  let movesAsJason = await moves.json();
+  console.log(movesAsJason);
+  
   let pokemon = responseAsJson.results;
   fetchCardValuesJson(pokemon);
 }

@@ -45,13 +45,6 @@
   justify-content: center;
   gap: 24px;
 }
-.stats {
-  padding: 0 12px;
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-}
-
 .poke-stats-name {
   display: flex;
   flex-direction: column;
