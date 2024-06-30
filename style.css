@@ -46,3 +46,9 @@ h1 {
 button {
   cursor: pointer;
 }
+progress{
+  accent-color: red;
+}
+tr{
+  box-shadow: 0 -1px 3px rgba(255, 255, 255, 0.384) inset
+}

@@ -1,12 +1,15 @@
 let overviewCards = [];
+
 let count = 0;
 let showAbilitienNumber = 0;
 let actualDetailNumber = 0;
 
 async function fetchDataJson() {
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
+  let response = await fetch(
+    `https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`
+  );
   let responseAsJson = await response.json();
-  let evolution = await fetch("https://pokeapi.co/api/v2/evolution-chain/1/")
+  let evolution = await fetch("https://pokeapi.co/api/v2/evolution-chain/107/");
   let evolutionAsJson = await evolution.json();
 
   console.log(evolutionAsJson);
@@ -14,34 +17,41 @@ async function fetchDataJson() {
   fetchCardValuesJson(pokemon);
 }
 
-async function fetchCardValuesJson(pokemon){
+async function fetchCardValuesJson(pokemon) {
   for (i = 0; i < pokemon.length; i++) {
     let choosePokemon = await fetch(pokemon[i].url);
     let choosePokemonAsJson = await choosePokemon.json();
     /* Arrays Abilities */
-    let pokeType = [];
-    choosePokemonAsJson.types.forEach((item) => {pokeType.push(item.type.name);});
-    let pokeStats = [];
-    choosePokemonAsJson.stats.forEach((item) => {pokeStats.push(item.stat.name);});
-    let pokeValues = [];
-    choosePokemonAsJson.stats.forEach((item) => {pokeValues.push(item.base_stat);});
-    let pokeMoves= []
-    choosePokemonAsJson.moves.forEach((item) => {pokeMoves.push(item.move.name);});
+
     /* edit JsonArray Pokemom of all needed Values */
-    let newCard = {
-      id: choosePokemonAsJson.id,
-      pokename: pokemon[i].name,
-      image: `<img src="${choosePokemonAsJson.sprites.other.dream_world.front_default}" alt="Pokemon" />`,
-      type: pokeType,
-      statsName: pokeStats,
-      statsValues: pokeValues,
-      moveName : pokeMoves,
-    };
+    let newCard = contentDetailCardJson(choosePokemonAsJson);
+
     /* push JSON in global Array */
     overviewCards.push(newCard);
   }
   document.getElementById("loadingScreen").classList.add("d-none");
   init();
+}
+
+function contentDetailCardJson(choosePokemonAsJson) {
+  let pokeType = [];
+  choosePokemonAsJson.types.forEach((item) => {pokeType.push(item.type.name);});
+  let pokeStats = [];
+  choosePokemonAsJson.stats.forEach((item) => {pokeStats.push(item.stat.name);});
+  let pokeValues = [];
+  choosePokemonAsJson.stats.forEach((item) => {pokeValues.push(item.base_stat);});
+  let pokeMoves = [];
+  choosePokemonAsJson.moves.forEach((item) => {pokeMoves.push(item.move.name);});
+  let newCard = {
+    id: choosePokemonAsJson.id,
+    pokename: choosePokemonAsJson.name,
+    image: `<img src="${choosePokemonAsJson.sprites.other.dream_world.front_default}" alt="Pokemon" />`,
+    type: pokeType,
+    statsName: pokeStats,
+    statsValues: pokeValues,
+    moveName: pokeMoves,
+  }
+  return newCard;
 }
 
 function init() {

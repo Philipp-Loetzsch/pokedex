@@ -24,7 +24,7 @@ function showStats(i) {
     <tr class="stat-content">
       <td> <span>${pokeStatName}</span> </td>
       <td><label for="statBar${j}">${pokeStatValue}</label></td> 
-      <td> <progress id="statBar${j}" max="150" value="${pokeStatValue}"></progress> 150</td>
+      <td> <progress id="statBar${j}" max="200" value="${pokeStatValue}"></progress> 200</td>
     </tr>`;
   }
 
