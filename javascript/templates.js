@@ -31,7 +31,8 @@ function detailCardContent(i) {
         <button onclick="showAbilities('1',${i})">Attacken</button>
         <button onclick="showAbilities('2',${i})">Entwicklungsstufen</button>
     </div>
-    <div id="abilities"></div>
+    <div id="abilities">
+    </div>
   </div>`;
 }
 

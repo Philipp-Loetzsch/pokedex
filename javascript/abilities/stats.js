@@ -1,15 +1,34 @@
 function showStats(i) {
     document.getElementById("abilities").innerHTML = statsContent();
-    let pokeStatName = document.getElementById(`statsName`);
-    let pokeStatValue = document.getElementById(`statsValue`);
-    overviewCards[i].statsName.forEach((item) => {pokeStatName.innerHTML += /* html */ `<div>${item} </div>`;});
-    overviewCards[i].statsValues.forEach((item, id) => {pokeStatValue.innerHTML += /* html */ `<div id="value${id}" class="stat-bar">${item} </div>`;});
+    loadStats(i);
   }
 
   function statsContent() {
-    return /* html */ ` 
-  <div class="stats">
-    <div class="poke-stats-name" id="statsName"></div>
-    <div class="poke-stats-value " id="statsValue"></div>
-  </div>`;
+    return /* html */` 
+    <table class="stats" id="stats">
+    </table>`;
+  }
+
+  function loadStats(i){
+    let pokeStats = overviewCards[i]
+    let stats = document.getElementById('stats')
+    for (j=0; j< pokeStats.statsName.length; j++){
+     let pokeStatName = pokeStats.statsName[j];
+     let pokeStatValue = pokeStats.statsValues[j];
+     stats.innerHTML += loadStatsHtml(j, pokeStatName, pokeStatValue);
+    }
+  }
+
+  function loadStatsHtml(j, pokeStatName, pokeStatValue){
+    return /* html */ `
+    <tr class="stat-content">
+      <td> <span>${pokeStatName}</span> </td>
+      <td><label for="statBar${j}">${pokeStatValue}</label></td> 
+      <td> <progress id="statBar${j}" max="150" value="${pokeStatValue}"></progress> 150</td>
+    </tr>`;
+  }
+
+  function showStats(i) {
+    document.getElementById("abilities").innerHTML = statsContent();
+    loadStats(i);
   }

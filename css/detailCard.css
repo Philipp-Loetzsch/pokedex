@@ -46,14 +46,12 @@
   gap: 24px;
 }
 .stats {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0 12px;
   box-sizing: border-box;
   height: 100%;
-  gap: 30px;
+  width: 100%;
 }
+
 .poke-stats-name {
   display: flex;
   flex-direction: column;
@@ -68,6 +66,7 @@
   justify-content: space-between;
 }
 .stat-bar{
+  width: 100%;
   color: black;
   background-color: white;
   border: 3px solid red;
