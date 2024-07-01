@@ -1,6 +1,6 @@
-function contentDetailCard(choosePokemonAsJson) {
+function contentDetailCard(choosePokemonAsJson, movesDetailsAsJson) {
    /* Arrays Abilities */
-  let abilities =  loadAbilities(choosePokemonAsJson)
+  let abilities =  loadAbilities(choosePokemonAsJson, movesDetailsAsJson)
   let newCard = {
     id: choosePokemonAsJson.id,
     pokename: choosePokemonAsJson.name,
@@ -13,20 +13,22 @@ function contentDetailCard(choosePokemonAsJson) {
   return newCard;
 }
 
-function loadAbilities(choosePokemonAsJson, moveDetails){
+function loadAbilities(choosePokemonAsJson, movesDetailsAsJson){
+   let moveList = movesDetailsAsJson;
+  console.log(moveList);
   let pokeAbilities ={
-    pokeType : [],
-    pokeStats : [],
-    pokeValues : [],
-    pokeMoves : [],
-    pokeMove : []
+    'pokeType' : [],
+    'pokeStats' : [],
+    'pokeValues' : [],
+    'pokeMoves' : [],
+    'movePower' : []
   }
   choosePokemonAsJson.types.forEach((item) => {pokeAbilities.pokeType.push(item.type.name);});
   choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeStats.push(item.stat.name);});
   choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeValues.push(item.base_stat);});
-  choosePokemonAsJson.moves.forEach((item) => {pokeAbilities.pokeMoves.push(item.move.name);});
-  pokeAbilities.pokeMove.push(moveDetails)
-
+  moveList.name.forEach((item) => {pokeAbilities.pokeMoves.push(item);});
+  moveList.power.forEach((item) => {pokeAbilities.movePower.push(item);});
+  /* pokeAbilities.pokeMove.push(moveMove) */
   console.log(pokeAbilities) 
   return pokeAbilities;
 }
