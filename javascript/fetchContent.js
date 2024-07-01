@@ -1,5 +1,5 @@
 async function fetchDataJson() {
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=2&offset=${count}`);
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
   let responseAsJson = await response.json();
   /*    let evolution = await fetch("https://pokeapi.co/api/v2/evolution-chain/107/");
     let evolutionAsJson = await evolution.json();
@@ -34,7 +34,8 @@ async function fetchMovesValuesJson(choosePokemonAsJson) {
     'pp': [],
     'text': [],
   };
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 4; i++) {
+  
     let moves = await fetch(choosePokemonAsJson.moves[i].move.url);
     let movesAsJason = await moves.json();
     movesDetails.name.push(movesAsJason.name);

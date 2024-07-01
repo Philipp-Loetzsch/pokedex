@@ -14,14 +14,19 @@ function showAttacks(i) {
     let attacks = document.getElementById('attacks')
     for (j = 0; j< pokeMove.moveName.length; j++){
      let pokeAttackName = pokeMove.moveName[j];
-     /* let pokeStatValue = pokeStats.statsValues[j]; */
-     attacks.innerHTML += loadAttacksHtml(j, pokeAttackName);
+     let pokeAttackPower = pokeMove.power[j]; 
+     let pokeAttackPp = pokeMove.pp[j]
+     let pokeAttackDescription = pokeMove.description[j].flavor_text
+     attacks.innerHTML += loadAttacksHtml(pokeAttackName, pokeAttackPower,pokeAttackPp,pokeAttackDescription );
     }  
   }
 
-  function loadAttacksHtml(j, pokeAttackName){
+  function loadAttacksHtml(pokeAttackName, pokeAttackPower,pokeAttackPp,pokeAttackDescription ){
     return /* html */ `
     <tr class="stat-content">
       <td> <span>${pokeAttackName}</span> </td>
+      <td> <span>Power: ${pokeAttackPower}</span> </td>
+      <td> <span>PP: ${pokeAttackPp}</span> </td>
+      <td> <span>${pokeAttackDescription}</span> </td>
     </tr>`;
   }

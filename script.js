@@ -9,6 +9,9 @@ function contentDetailCard(choosePokemonAsJson, movesDetailsAsJson) {
     statsName: abilities.pokeStats,
     statsValues: abilities.pokeValues,
     moveName: abilities.pokeMoves,
+    power: abilities.movePower,
+    pp: abilities.movePp,
+    description: abilities.moveText
   }
   return newCard;
 }
@@ -21,13 +24,18 @@ function loadAbilities(choosePokemonAsJson, movesDetailsAsJson){
     'pokeStats' : [],
     'pokeValues' : [],
     'pokeMoves' : [],
-    'movePower' : []
+    'movePower' : [],
+    'movePp' :[],
+    'moveText':[]
   }
   choosePokemonAsJson.types.forEach((item) => {pokeAbilities.pokeType.push(item.type.name);});
   choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeStats.push(item.stat.name);});
   choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeValues.push(item.base_stat);});
   moveList.name.forEach((item) => {pokeAbilities.pokeMoves.push(item);});
   moveList.power.forEach((item) => {pokeAbilities.movePower.push(item);});
+  moveList.pp.forEach((item) => {pokeAbilities.movePp.push(item);});
+  moveList.text.forEach((item) => {pokeAbilities.moveText.push(item);});
+
   /* pokeAbilities.pokeMove.push(moveMove) */
   console.log(pokeAbilities) 
   return pokeAbilities;
