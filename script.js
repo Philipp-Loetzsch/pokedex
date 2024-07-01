@@ -1,60 +1,34 @@
-let overviewCards = [];
-
-let count = 0;
-let showAbilitienNumber = 0;
-let actualDetailNumber = 0;
-
-async function fetchDataJson() {
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
-  let responseAsJson = await response.json();
-
-  let evolution = await fetch("https://pokeapi.co/api/v2/evolution-chain/107/");
-  let evolutionAsJson = await evolution.json();
-  console.log(evolutionAsJson);
-
-  let moves = await fetch("https://pokeapi.co/api/v2/move/13/")
-  let movesAsJason = await moves.json();
-  console.log(movesAsJason);
-  
-  let pokemon = responseAsJson.results;
-  fetchCardValuesJson(pokemon);
-}
-
-async function fetchCardValuesJson(pokemon) {
-  for (i = 0; i < pokemon.length; i++) {
-    let choosePokemon = await fetch(pokemon[i].url);
-    let choosePokemonAsJson = await choosePokemon.json();
-    /* Arrays Abilities */
-
-    /* edit JsonArray Pokemom of all needed Values */
-    let newCard = contentDetailCardJson(choosePokemonAsJson);
-
-    /* push JSON in global Array */
-    overviewCards.push(newCard);
-  }
-  document.getElementById("loadingScreen").classList.add("d-none");
-  init();
-}
-
-function contentDetailCardJson(choosePokemonAsJson) {
-  let pokeType = [];
-  choosePokemonAsJson.types.forEach((item) => {pokeType.push(item.type.name);});
-  let pokeStats = [];
-  choosePokemonAsJson.stats.forEach((item) => {pokeStats.push(item.stat.name);});
-  let pokeValues = [];
-  choosePokemonAsJson.stats.forEach((item) => {pokeValues.push(item.base_stat);});
-  let pokeMoves = [];
-  choosePokemonAsJson.moves.forEach((item) => {pokeMoves.push(item.move.name);});
+function contentDetailCard(choosePokemonAsJson) {
+   /* Arrays Abilities */
+  let abilities =  loadAbilities(choosePokemonAsJson)
   let newCard = {
     id: choosePokemonAsJson.id,
     pokename: choosePokemonAsJson.name,
     image: `<img src="${choosePokemonAsJson.sprites.other.dream_world.front_default}" alt="Pokemon" />`,
-    type: pokeType,
-    statsName: pokeStats,
-    statsValues: pokeValues,
-    moveName: pokeMoves,
+    type: abilities.pokeType,
+    statsName: abilities.pokeStats,
+    statsValues: abilities.pokeValues,
+    moveName: abilities.pokeMoves,
   }
   return newCard;
+}
+
+function loadAbilities(choosePokemonAsJson, moveDetails){
+  let pokeAbilities ={
+    pokeType : [],
+    pokeStats : [],
+    pokeValues : [],
+    pokeMoves : [],
+    pokeMove : []
+  }
+  choosePokemonAsJson.types.forEach((item) => {pokeAbilities.pokeType.push(item.type.name);});
+  choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeStats.push(item.stat.name);});
+  choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeValues.push(item.base_stat);});
+  choosePokemonAsJson.moves.forEach((item) => {pokeAbilities.pokeMoves.push(item.move.name);});
+  pokeAbilities.pokeMove.push(moveDetails)
+
+  console.log(pokeAbilities) 
+  return pokeAbilities;
 }
 
 function init() {
