@@ -9,11 +9,11 @@ function showStats(i) {
   }
 
   function loadStats(i){
-    let pokeStats = overviewCards[i]
+    let pokeStats = pokemonAbilities[i]
     let stats = document.getElementById('stats')
-    for (j = 0; j< pokeStats.statsName.length; j++){
-     let pokeStatName = pokeStats.statsName[j];
-     let pokeStatValue = pokeStats.statsValues[j];
+    for (j = 0; j < pokeStats.stats.length; j++){
+     let pokeStatName = pokeStats.stats[j].stat.name;
+     let pokeStatValue = pokeStats.stats[j].base_stat;
      stats.innerHTML += loadStatsHtml(j, pokeStatName, pokeStatValue);
     }
   }

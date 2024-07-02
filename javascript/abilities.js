@@ -1,3 +1,5 @@
+let showAbilitienNumber = 0;
+
 function showAbilities(buttonId, i) {
   document.getElementById("abilities").innerHTML = "";
   showAbilitienNumber = buttonId;

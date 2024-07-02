@@ -2,11 +2,11 @@ function cardContent(i) {
   return /* html */ `
 <div class="poke-card " onclick="showDetailedCard(${i})">
            <div class="name">
-               <div>#${overviewCards[i].id}</div>
-               <div>${overviewCards[i].pokename}</div>
+               <div>#${pokemonAbilities[i].id}</div>
+               <div>${allPokemons[0][i].name}</div>
            </div>
-           <div class="poke-pic bg_${overviewCards[i].type[0]}">
-               ${overviewCards[i].image}
+           <div class="poke-pic bg_${pokemonAbilities[i].types[0].type.name}">
+           <img src="${pokemonAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
            </div>
            <div class="poke-type" id="type${i}"></div>
        </div>
@@ -18,13 +18,13 @@ function detailCardContent(i) {
   <div class="poke-detail" onclick="event.stopPropagation()" >
     <div class="detail-header"> 
      <div class="name-detail">
-      <div># ${overviewCards[i].id}</div>
-      <div>${overviewCards[i].pokename}</div>
+      <div># ${pokemonAbilities[i].id}</div>
+      <div>${allPokemons[i].name}</div>
      </div>
      <button onclick="closeDetailedCard()">X</button>
     </div>
-    <div class="poke-pic-detail bg_${overviewCards[i].type[0]}">
-      ${overviewCards[i].image}
+    <div class="poke-pic-detail bg_${pokemonAbilities[i].types[0].type.name}">
+    <img src="${pokemonAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
     </div>
     <div class="card-menu"> 
         <button onclick="showAbilities('0',${i})" >Stats</button>
@@ -38,7 +38,7 @@ function detailCardContent(i) {
 
 function showDetailedCard(i) {
   document.getElementById("detailContent").innerHTML = detailCardContent(i);
-  showAbilities("0", i);
+  showAbilities("0", i); 
   document.getElementById(`detailContent`).classList.remove("d-none");
   document.getElementById(`detailContent`).classList.add("d-flex");
   document.body.classList.add("ofy-h");

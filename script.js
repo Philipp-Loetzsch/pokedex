@@ -1,58 +1,60 @@
-function contentDetailCard(choosePokemonAsJson, movesDetailsAsJson) {
-   /* Arrays Abilities */
-  let abilities =  loadAbilities(choosePokemonAsJson, movesDetailsAsJson)
-  let newCard = {
-    id: choosePokemonAsJson.id,
-    pokename: choosePokemonAsJson.name,
-    image: `<img src="${choosePokemonAsJson.sprites.other.dream_world.front_default}" alt="Pokemon" />`,
-    type: abilities.pokeType,
-    statsName: abilities.pokeStats,
-    statsValues: abilities.pokeValues,
-    moveName: abilities.pokeMoves,
-    power: abilities.movePower,
-    pp: abilities.movePp,
-    description: abilities.moveText
-  }
-  return newCard;
+/* global Arrays */
+let allPokemons=[];
+let pokemonAbilities = [];
+let pokemonMoves = [];
+/* global Numbers */
+let count = 0;
+
+
+async function fetchDataJson() {
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
+  let responseAsJson = await response.json();
+  /*    let evolution = await fetch("https://pokeapi.co/api/v2/evolution-chain/107/");
+    let evolutionAsJson = await evolution.json();
+    console.log(evolutionAsJson); */
+  allPokemons.push(responseAsJson.results);
+
+  /*  allPokemon.push(pokemon); */
+  console.log(responseAsJson.results);
+  console.warn(allPokemons)
+  fetchCardValuesJson();
+
 }
 
-function loadAbilities(choosePokemonAsJson, movesDetailsAsJson){
-   let moveList = movesDetailsAsJson;
-  console.log(moveList);
-  let pokeAbilities ={
-    'pokeType' : [],
-    'pokeStats' : [],
-    'pokeValues' : [],
-    'pokeMoves' : [],
-    'movePower' : [],
-    'movePp' :[],
-    'moveText':[]
+async function fetchCardValuesJson() {
+  for(i = 0; i < allPokemons[0].length; i++ ){
+    let allAbilities = await fetch(allPokemons[0][i].url);
+    let allAbilitiesAsJson = await allAbilities.json();
+    pokemonAbilities.push(allAbilitiesAsJson);
   }
-  choosePokemonAsJson.types.forEach((item) => {pokeAbilities.pokeType.push(item.type.name);});
-  choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeStats.push(item.stat.name);});
-  choosePokemonAsJson.stats.forEach((item) => {pokeAbilities.pokeValues.push(item.base_stat);});
-  moveList.name.forEach((item) => {pokeAbilities.pokeMoves.push(item);});
-  moveList.power.forEach((item) => {pokeAbilities.movePower.push(item);});
-  moveList.pp.forEach((item) => {pokeAbilities.movePp.push(item);});
-  moveList.text.forEach((item) => {pokeAbilities.moveText.push(item);});
+  console.log(pokemonAbilities);
+  document.getElementById("loadingScreen").classList.add("d-none");
+  init(); 
+/*   fetchMovesValuesJson();  */
+}
 
-  /* pokeAbilities.pokeMove.push(moveMove) */
-  console.log(pokeAbilities) 
-  return pokeAbilities;
+function fetchMovesValuesJson() {
+  for(i = 0; i < pokemonAbilities.length; i++ ){
+    let allMoves = (pokemonAbilities[i].moves);
+    pokemonMoves.push(allMoves);
+  }
+  console.log(pokemonMoves);
+ 
 }
 
 function init() {
   let content = document.getElementById(`content`);
   content.innerHTML = "";
-  for (i = 0; i < overviewCards.length; i++) {
+  for (i = 0; i < allPokemons[0].length; i++) {
     content.innerHTML += cardContent(i);
-    showType(i);
+     showType(i); 
   }
 }
 
 function showType(i) {
   let poketype = document.getElementById(`type${i}`);
   poketype.innerHTML = "";
-  for (j = 0; j < overviewCards[i].type.length; j++)
-    poketype.innerHTML += `<div>${overviewCards[i].type[j]}</div>`;
+  for (j = 0; j < pokemonAbilities[i].types.length; j++){
+    poketype.innerHTML += `<div>${pokemonAbilities[i].types[j].type.name}</div>`;
+  }
 }

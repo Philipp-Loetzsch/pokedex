@@ -32,11 +32,8 @@
     <header>
       <h1>Pokédex</h1>
       <form id="inputNumber" onsubmit="showAmount(); return false">
-        <label>
-          <span>Hier Nummer des gewünschten Pokemons eingeben </span>
-          <span>(max 649)</span></label
-        >
         <div class="search">
+          <div class="input">
           <input
             type="number"
             min="1"
@@ -48,6 +45,10 @@
           <button type="submit" title="Anzeigen">
             <img src="./assets/img/eye.png" alt="" />
           </button>
+          </div>
+          <label>
+            <span>insert number of pokemon </span>
+            <span>(max 649)</span></label>
         </div>
       </form>
       <form onsubmit="return false" class="search">
@@ -57,7 +58,7 @@
           id="searchPokemon"
           placeholder="enter search"
         />
-        <button>Suchen</button>
+        <button><img src="./assets/img/eye.png" alt="" /></button>
       </form>
     </header>
     <main>

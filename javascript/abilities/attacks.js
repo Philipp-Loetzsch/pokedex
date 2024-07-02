@@ -9,8 +9,7 @@ function showAttacks(i) {
   }
 
   function loadAttacks(i){
-    let pokeMove = overviewCards[i]
-    console.log(pokeMove);
+    let pokeMove = pokemonMoves[i]
     let attacks = document.getElementById('attacks')
     for (j = 0; j< pokeMove.moveName.length; j++){
      let pokeAttackName = pokeMove.moveName[j];
@@ -24,9 +23,9 @@ function showAttacks(i) {
   function loadAttacksHtml(pokeAttackName, pokeAttackPower,pokeAttackPp,pokeAttackDescription ){
     return /* html */ `
     <tr class="stat-content">
-      <td> <span>${pokeAttackName}</span> </td>
-      <td> <span>Power: ${pokeAttackPower}</span> </td>
-      <td> <span>PP: ${pokeAttackPp}</span> </td>
-      <td> <span>${pokeAttackDescription}</span> </td>
+      <th> <span>${pokeAttackName}</span> 
+      <span>Power: ${pokeAttackPower}</span> 
+      <span>PP: ${pokeAttackPp}</span> </th>
+      <td> <span class="description">${pokeAttackDescription}</span> </td>
     </tr>`;
   }
