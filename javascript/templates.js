@@ -3,7 +3,7 @@ function cardContent(i) {
 <div class="poke-card " onclick="showDetailedCard(${i})">
            <div class="name">
                <div>#${pokemonAbilities[i].id}</div>
-               <div>${allPokemons[0][i].name}</div>
+               <div>${pokemonAbilities[i].name}</div>
            </div>
            <div class="poke-pic bg_${pokemonAbilities[i].types[0].type.name}">
            <img src="${pokemonAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
@@ -19,7 +19,7 @@ function detailCardContent(i) {
     <div class="detail-header"> 
      <div class="name-detail">
       <div># ${pokemonAbilities[i].id}</div>
-      <div>${allPokemons[i].name}</div>
+      <div>${pokemonAbilities[i].name}</div>
      </div>
      <button onclick="closeDetailedCard()">X</button>
     </div>
