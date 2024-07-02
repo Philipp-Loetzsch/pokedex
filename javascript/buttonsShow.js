@@ -1,7 +1,6 @@
 function showMore() {
   document.getElementById("loadingScreen").classList.remove("d-none");
   count = count + 30;
-  more = more + 1;
   fetchDataJson();
 }
 
