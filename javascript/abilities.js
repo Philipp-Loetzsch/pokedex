@@ -9,6 +9,6 @@ function showAbilities(buttonId, i) {
     fetchMoveAbilities();
  
   } else {
-    console.log("Entwicklungen");
+     fetchEvolutionChain(i)
   }
 }

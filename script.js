@@ -4,6 +4,7 @@ let pokemonAbilities = [];
 let pokemonBuffer = [];
 let moveAbilities = [];
 let pokemonMoves;
+let evolutionChain;
 /* global Numbers */
 let count = 0;
 
@@ -39,6 +40,13 @@ async function fetchMoveAbilities() {
   }
   document.getElementById("loadingScreen").classList.add("d-none")
   showAttacks();
+}
+
+async function fetchEvolutionChain(i){
+  let evolution = await fetch (`https://pokeapi.co/api/v2/evolution-chain/${i+1}/`)
+  let evolutionAsJson = await evolution.json();
+  evolutionChain= evolutionAsJson;
+  console.log(evolutionAsJson);
 }
 
 function init() {
