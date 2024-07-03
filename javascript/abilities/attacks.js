@@ -1,6 +1,6 @@
-function showAttacks(i) {
+function showAttacks() {
     document.getElementById("abilities").innerHTML = attacksContent();
-    loadAttacks(i);
+    loadAttacks();
   }
 
   function attacksContent() {
@@ -8,24 +8,30 @@ function showAttacks(i) {
   <table id="attacks"></table>`;
   }
 
-  function loadAttacks(i){
-    let pokeMove = pokemonMoves[i]
+  function loadAttacks(){
+   /*  let pokeMove = pokemonMoves[i] */
     let attacks = document.getElementById('attacks')
-    for (j = 0; j< pokeMove.moveName.length; j++){
-     let pokeAttackName = pokeMove.moveName[j];
-     let pokeAttackPower = pokeMove.power[j]; 
-     let pokeAttackPp = pokeMove.pp[j]
-     let pokeAttackDescription = pokeMove.description[j].flavor_text
-     attacks.innerHTML += loadAttacksHtml(pokeAttackName, pokeAttackPower,pokeAttackPp,pokeAttackDescription );
+    for (j = 0; j< pokemonMoves.length; j++){
+     let pokeAttackName = pokemonMoves[j].move.name;
+     let pokeAttackPower = moveAbilities[j].power; 
+     if (moveAbilities[j].power == null){
+      pokeAttackPower = 0;
+     }
+     let pokeAttackPp = moveAbilities[j].pp;
+     let pokeAttackDescription = moveAbilities[j].flavor_text_entries[4].flavor_text;
+     attacks.innerHTML += loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackPp, pokeAttackDescription );
+     if (j === 3){
+      break
+     }
     }  
   }
 
-  function loadAttacksHtml(pokeAttackName, pokeAttackPower,pokeAttackPp,pokeAttackDescription ){
+  function loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackPp, pokeAttackDescription){
     return /* html */ `
     <tr class="stat-content">
-      <th> <span>${pokeAttackName}</span> 
+      <th> <h2>${pokeAttackName}</h2> 
       <span>Power: ${pokeAttackPower}</span> 
       <span>PP: ${pokeAttackPp}</span> </th>
-      <td> <span class="description">${pokeAttackDescription}</span> </td>
+      <td> <span class="description">${pokeAttackDescription}</span> </td> 
     </tr>`;
   }

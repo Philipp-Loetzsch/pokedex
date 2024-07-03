@@ -1,6 +1,6 @@
 function cardContent(i) {
   return /* html */ `
-<div class="poke-card " onclick="showDetailedCard(${i})">
+<div class="poke-card " onclick="loadMovesValuesJson(${i}); ">
            <div class="name">
                <div>#${pokemonAbilities[i].id}</div>
                <div>${pokemonAbilities[i].name}</div>
@@ -15,6 +15,7 @@ function cardContent(i) {
 
 function detailCardContent(i) {
   return /* html */ ` 
+  <button onclick="event.stopPropagation()">links</button>
   <div class="poke-detail" onclick="event.stopPropagation()" >
     <div class="detail-header"> 
      <div class="name-detail">
@@ -33,19 +34,6 @@ function detailCardContent(i) {
     </div>
     <div id="abilities">
     </div>
-  </div>`;
-}
-
-function showDetailedCard(i) {
-  document.getElementById("detailContent").innerHTML = detailCardContent(i);
-  showAbilities("0", i); 
-  document.getElementById(`detailContent`).classList.remove("d-none");
-  document.getElementById(`detailContent`).classList.add("d-flex");
-  document.body.classList.add("ofy-h");
-}
-function closeDetailedCard() {
-  document.getElementById(`detailContent`).classList.add("d-none");
-  document.getElementById(`detailContent`).classList.remove("d-flex");
-  document.body.classList.remove("ofy-h");
-}
-
+  </div>
+  <button onclick="event.stopPropagation()">rechts</button>`;
+  }

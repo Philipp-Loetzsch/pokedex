@@ -6,7 +6,8 @@ function showAbilities(buttonId, i) {
   if (showAbilitienNumber == 0) {
     showStats(i);
   } else if (showAbilitienNumber == 1) {
-    showAttacks(i);
+    fetchMoveAbilities();
+ 
   } else {
     console.log("Entwicklungen");
   }

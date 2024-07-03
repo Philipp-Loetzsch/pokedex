@@ -1,13 +1,14 @@
-/* global Arrays */
 let nextUrl = "";
+/* global Arrays */
 let pokemonAbilities = [];
-let pokemonMoves = [];
 let pokemonBuffer = [];
+let moveAbilities = [];
+let pokemonMoves;
 /* global Numbers */
-/* let count = 0; */
+let count = 0;
 
 async function fetchDataJson() {
-  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=0`);
+  let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
   let responseAsJson = await response.json();
   allPokemons = responseAsJson.results;
   nextUrl = responseAsJson.next;
@@ -21,44 +22,33 @@ async function fetchCardValuesJson(allPokemons) {
     let allAbilitiesAsJson = await allAbilities.json();
     pokemonAbilities.push(allAbilitiesAsJson);
   }
- 
   init();
   bufferNextPokemon();
-  /* fetchMovesValuesJson(); */
 }
 
-async function bufferNextPokemon() {
-  document.getElementById('showMore').disabled = true;
-  let buffer = await fetch(nextUrl);
-  let bufferAsJson = await buffer.json();
-  nextUrl = bufferAsJson.next;
-  for (i = 0; i < bufferAsJson.results.length; i++) {
-    let bufferAbilities = await fetch(bufferAsJson.results[i].url);
-    let bufferAbilitiesAsJson = await bufferAbilities.json();
-    pokemonBuffer.push(bufferAbilitiesAsJson);
+async function fetchMoveAbilities() {
+  moveAbilities = [];
+  document.getElementById("loadingScreen").classList.remove("d-none")
+  for (i = 0; i < pokemonMoves.length; i++) {
+    let abilitieOfMove = await fetch(pokemonMoves[i].move.url);
+    let moveAbilitiesAsJson = await abilitieOfMove.json();
+    moveAbilities.push(moveAbilitiesAsJson);
+    if (i === 3) {
+      break;
+    }
   }
-  document.getElementById('showMore').disabled = false;
-
-  console.log(pokemonBuffer);
+  document.getElementById("loadingScreen").classList.add("d-none")
+  showAttacks();
 }
 
-function fetchMovesValuesJson() {
-  for (i = 0; i < pokemonAbilities.length; i++) {
-    let allMoves = pokemonAbilities[i].moves;
-    pokemonMoves.push(allMoves);
-  }
-  console.log(pokemonMoves);
-}
-
-async function init() {
- 
+function init() {
   let content = document.getElementById(`content`);
   content.innerHTML = "";
   for (i = 0; i < pokemonAbilities.length; i++) {
     content.innerHTML += cardContent(i);
     showType(i);
   }
-  document.getElementById("loadingScreen").classList.add("d-none"); 
+  document.getElementById("loadingScreen").classList.add("d-none");
 }
 
 function showType(i) {
