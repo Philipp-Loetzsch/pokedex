@@ -1,5 +1,6 @@
 async function showMore() {
   document.getElementById("loadingScreen").classList.remove("d-none");
+<<<<<<< HEAD
   while (pokemonBuffer.length > 0) {
     let cut = pokemonBuffer.shift();
     pokemonAbilities.push(cut);
@@ -8,6 +9,10 @@ async function showMore() {
   console.log(pokemonAbilities);
   bufferNextPokemon();
   init();
+=======
+  count = count + 30;
+  fetchDataJson();
+>>>>>>> 8a8d78a764cc4b4058cd2d47aeef0fdf4592ff0f
 }
 
 function showAmount() {
