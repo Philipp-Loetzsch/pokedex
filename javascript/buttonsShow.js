@@ -1,8 +1,13 @@
-function showMore() {
+async function showMore() {
   document.getElementById("loadingScreen").classList.remove("d-none");
-  count = count + 30;
-  more = more + 1;
-  fetchDataJson();
+  while (pokemonBuffer.length > 0) {
+    let cut = pokemonBuffer.shift();
+    pokemonAbilities.push(cut);
+  }
+ 
+  console.log(pokemonAbilities);
+  bufferNextPokemon();
+  init();
 }
 
 function showAmount() {
