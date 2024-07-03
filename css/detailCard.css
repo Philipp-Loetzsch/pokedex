@@ -81,3 +81,17 @@
   width: 100%;
   align-items: center;
 }
+.switch {
+  background-color: transparent;
+  border: none;
+  
+  :hover{
+    background-color: lightcoral;
+  }
+  img{
+    width: 70px;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+}

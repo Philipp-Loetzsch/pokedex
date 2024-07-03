@@ -29,14 +29,21 @@ async function fetchCardValuesJson(allPokemons) {
 
 async function fetchMoveAbilities() {
   moveAbilities = [];
-  document.getElementById("loadingScreen").classList.remove("d-none")
+
   for (i = 0; i < pokemonMoves.length; i++) {
+    let loadingScreenTimeout = setTimeout(() => {
+      document.getElementById("loadingScreen").classList.remove("d-none")
+    }, 20);
     let abilitieOfMove = await fetch(pokemonMoves[i].move.url);
+    clearTimeout(loadingScreenTimeout)
     let moveAbilitiesAsJson = await abilitieOfMove.json();
     moveAbilities.push(moveAbilitiesAsJson);
+    
     if (i === 3) {
       break;
-    }
+    
+    }  
+   
   }
   document.getElementById("loadingScreen").classList.add("d-none")
   showAttacks();

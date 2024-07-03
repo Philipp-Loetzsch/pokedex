@@ -5,7 +5,7 @@ function loadMovesValuesJson(i) {
 
 function showDetailedCard(i) {
     document.getElementById("detailContent").innerHTML = detailCardContent(i);
-    showAbilities("0", i); 
+    showAbilities(showAbilitienNumber, i); 
     document.getElementById(`detailContent`).classList.remove("d-none");
     document.getElementById(`detailContent`).classList.add("d-flex");
     document.body.classList.add("ofy-h");

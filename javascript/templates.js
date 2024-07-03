@@ -15,7 +15,7 @@ function cardContent(i) {
 
 function detailCardContent(i) {
   return /* html */ ` 
-  <button onclick="event.stopPropagation()">links</button>
+  <button class="switch" onclick="showBefore(${i}); event.stopPropagation()"><img src="./assets/img/arrow-left.svg" alt=""></button>
   <div class="poke-detail" onclick="event.stopPropagation()" >
     <div class="detail-header"> 
      <div class="name-detail">
@@ -35,5 +35,5 @@ function detailCardContent(i) {
     <div id="abilities">
     </div>
   </div>
-  <button onclick="event.stopPropagation()">rechts</button>`;
+  <button class="switch" onclick="showNext(${i}); event.stopPropagation()"><img src="./assets/img/arrow-right.svg" alt=""></button>`;
   }

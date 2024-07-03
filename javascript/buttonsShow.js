@@ -12,7 +12,17 @@ function showAmount() {
   document.getElementById("loadingScreen").classList.remove("d-none");
   let amountOfPokemon = document.getElementById(`amountOfPokemon`);
   count = amountOfPokemon.value - 1;
-  pokemonBuffer= [];
+  pokemonBuffer = [];
   pokemonAbilities = [];
   fetchDataJson();
+}
+
+function showNext(i) {
+  i = (i + 1) % pokemonAbilities.length ;
+  loadMovesValuesJson(i);
+}
+
+function showBefore(i) {
+  i = (i - 1 + pokemonAbilities.length) % pokemonAbilities.length;
+  loadMovesValuesJson(i);
 }
