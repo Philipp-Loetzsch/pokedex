@@ -11,9 +11,44 @@
   }
 }
 @media screen and (max-width: 600px) {
-  .poke-detail{
+  .poke-detail {
     height: 100%;
     border-radius: 0;
   }
-  
+  #switchRight {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+  }
+  #switchLeft {
+    position: absolute;
+    left: 10px;
+    top: 40%;
+  }
+  .name-detail {
+    font-size: 32px;
+  }
+  .card-menu button{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-height: 850px) {
+  .poke-detail {
+    height: 100%;
+    border-radius: 0;
+  }
+  #switchRight {
+    position: absolute;
+    right: 10px;
+    top: 40%;
+  }
+  #switchLeft {
+    position: absolute;
+    left: 10px;
+    top: 40%;
+  }
+  #abilities {
+    overflow-y: scroll;
+  }
 }

@@ -15,7 +15,7 @@ function cardContent(i) {
 
 function detailCardContent(i) {
   return /* html */ ` 
-  <button class="switch" onclick="showBefore(${i}); event.stopPropagation()"><img src="./assets/img/arrow-left.svg" alt=""></button>
+  <button id="switchLeft" class="switch" onclick="showBefore(${i}); event.stopPropagation()"><img src="./assets/img/arrow-left.svg" alt=""></button>
   <div class="poke-detail" onclick="event.stopPropagation()" >
     <div class="detail-header"> 
      <div class="name-detail">
@@ -27,13 +27,13 @@ function detailCardContent(i) {
     <div class="poke-pic-detail bg_${currentAbilities[i].types[0].type.name}">
     <img src="${currentAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
     </div>
-    <div class="card-menu"> 
+    <div class="card-menu bg_${currentAbilities[i].types[0].type.name}"> 
         <button onclick="showAbilities('0',${i})" >Stats</button>
-        <button onclick="showAbilities('1',${i})">Attacken</button>
-        <button onclick="showAbilities('2',${i})">Entwicklungsstufen</button>
+        <button onclick="showAbilities('1',${i})">Attacks</button>
+        <button onclick="showAbilities('2',${i})">Evolution</button>
     </div>
     <div id="abilities">
     </div>
   </div>
-  <button class="switch" onclick="showNext(${i}); event.stopPropagation()"><img src="./assets/img/arrow-right.svg" alt=""></button>`;
+  <button id="switchRight" class="switch" onclick="showNext(${i}); event.stopPropagation()"><img src="./assets/img/arrow-right.svg" alt=""></button>`;
   }

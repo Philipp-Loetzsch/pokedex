@@ -52,4 +52,40 @@
 .bg_fairy {
   background-color: #D685AD;
 }
+.bg_hp{
+  background-color: #8f2824;
+}
+.bg_attack{
+  background-color: #1a689c;
+}
+.bg_defense{
+  background-color: #b89a15;
+}
+.bg_special-attack{
+  background-color: rgb(80, 26, 167);
+}
+.bg_special-defense{
+  background-color: rgb(192, 129, 13);
+}
+.bg_speed{
+  background-color: rgb(148, 144, 150);
+}
 
+.pb_hp{
+  accent-color: #8f2824;
+}
+.pb_attack{
+  accent-color: #1a689c;
+}
+.pb_defense{
+  accent-color: #b89a15;
+}
+.pb_special-attack{
+  accent-color: rgb(80, 26, 167);
+}
+.pb_special-defense{
+  accent-color: rgb(192, 129, 13);
+}
+.pb_speed{
+  accent-color: rgb(148, 144, 150);
+}

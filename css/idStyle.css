@@ -9,14 +9,13 @@
     align-items: center;
   }
 }
-#resetFilterBtn{
+#resetFilterBtn {
   background-color: white;
   border-radius: 50%;
   width: 35px;
   height: 35px;
-  img{
+  img {
     width: 100%;
-  
   }
 }
 
@@ -38,6 +37,7 @@
   align-items: center;
   justify-content: center;
 }
+
 #loadingScreen {
   z-index: 999;
   position: fixed;
@@ -55,13 +55,16 @@
 }
 #abilities {
   width: 100%;
+  border-radius: 20px;
   height: 40%;
+  overflow: hidden;
 }
 #stats {
-  padding: 0 12px;
+  padding: 0;
   box-sizing: border-box;
   height: 100%;
   width: 100%;
+  border-spacing: 0;
 }
 #showMore {
   background-color: gold;
