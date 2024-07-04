@@ -1,3 +1,8 @@
+@media screen and (max-width: 400px) {
+  .card-menu button {
+    font-size: 12px;
+  }
+}
 @media screen and (max-width: 750px) {
  
   #content {
@@ -36,9 +41,13 @@
   .name-detail {
     font-size: 32px;
   }
-  .card-menu button {
-    font-size: 12px;
+  .progress-bar {
+    font-size: 16px;
   }
+  #stats{
+    font-size: 16px;
+  }
+ 
   footer {
     align-items: center;
   }

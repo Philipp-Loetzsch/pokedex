@@ -30,8 +30,8 @@ function showAttacks() {
     return /* html */ `
     <tr class="stat-content">
       <th> <h2>${pokeAttackName}</h2> 
-      <span>Power: ${pokeAttackPower}</span> 
-      <span>PP: ${pokeAttackPp}</span> </th>
+      <span>power: ${pokeAttackPower}</span> 
+      <span>pp: ${pokeAttackPp}</span> </th>
       <td> <span class="description">${pokeAttackDescription}</span> </td> 
     </tr>`;
   }

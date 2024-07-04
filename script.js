@@ -70,6 +70,6 @@ function showType(i) {
   let poketype = document.getElementById(`type${i}`);
   poketype.innerHTML = "";
   for (j = 0; j < currentAbilities[i].types.length; j++) {
-    poketype.innerHTML += `<div>${currentAbilities[i].types[j].type.name}</div>`;
+    poketype.innerHTML += `<div class="type bg_${currentAbilities[i].types[j].type.name}">${currentAbilities[i].types[j].type.name}</div>`;
   }
 }

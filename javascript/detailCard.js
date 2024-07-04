@@ -1,5 +1,5 @@
 function loadMovesValuesJson(i) {
-    pokemonMoves = pokemonAbilities[i].moves;
+    pokemonMoves = currentAbilities[i].moves;
     showDetailedCard(i);
   }
 

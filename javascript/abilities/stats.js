@@ -9,7 +9,7 @@ function showStats(i) {
   }
 
   function loadStats(i){
-    let pokeStats = pokemonAbilities[i]
+    let pokeStats = currentAbilities[i]
     let stats = document.getElementById('stats')
     for (j = 0; j < pokeStats.stats.length; j++){
      let pokeStatName = pokeStats.stats[j].stat.name;

@@ -40,6 +40,7 @@
     width: 100%;
   }
 }
+
 .card-menu {
   display: flex;
   justify-content: space-around;
@@ -51,12 +52,12 @@
     border-radius: 10px;
     padding: 4px;
     background-color: transparent;
-    color: black;
+   
   }
 }
 .card-menu button:hover {
-  color: lightcoral;
-  text-shadow: 0 0 10px black;
+  color: rgb(245, 239, 239);
+  text-shadow: 0 5px 10px  black;
 }
 
 .description {
@@ -66,6 +67,8 @@
   justify-content: start;
   width: 100%;
   align-items: center;
+  font-size: 18px;
+  font-weight: 800;
 }
 .switch {
   background-color: transparent;
@@ -96,9 +99,11 @@
   height: 100%;
   padding: 10px;
   box-sizing: border-box;
+  font-size: 24px;
 }
 
 /* active ability */
 .active{
-  text-shadow: 0 0 20px 0 red;
+  color: white;
+  text-shadow: 0 5px 10px  rgb(0, 0, 0);
 }

@@ -28,11 +28,11 @@ function detailCardContent(i) {
     <img src="${currentAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
     </div>
     <div class="card-menu bg_${currentAbilities[i].types[0].type.name}"> 
-        <button onclick="showAbilities('0',${i})" >Stats</button>
-        <button onclick="showAbilities('1',${i})">Attacks</button>
-        <button onclick="showAbilities('2',${i})">Evolution</button>
+        <button id="btnStats" onclick="showAbilities('0',${i})" >Stats</button>
+        <button id="btnAttacks" onclick="showAbilities('1',${i})">Attacks</button>
+        <button id="btnEvolution" onclick="showAbilities('2',${i})">Evolution</button>
     </div>
-    <div id="abilities">
+    <div id="abilities" class="bg_${currentAbilities[i].types[0].type.name}">
     </div>
   </div>
   <button id="switchRight" class="switch" onclick="showNext(${i}); event.stopPropagation()"><img src="./assets/img/arrow-right.svg" alt=""></button>`;

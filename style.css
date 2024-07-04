@@ -55,7 +55,8 @@ button {
   background-color: transparent;
 }
 progress{
-  accent-color: rgb(252, 0, 0);
+  accent-color: rgb(235, 11, 11);
+  height: 32px;
 }
 tr{
   box-shadow: 0 -1px 3px rgba(255, 255, 255, 0.384) inset
@@ -69,9 +70,10 @@ th{
     height: 100%;
     width: 150px;
     flex-direction: column;
-     gap: 10px;
+     gap: 5px;
     padding-right: 20px;
     box-sizing: border-box;
     border-right: 1px solid white;
     text-align: start;
+    padding-left: 10px;
 }
