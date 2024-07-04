@@ -50,10 +50,12 @@ async function fetchMoveAbilities() {
 }
 
 async function fetchEvolutionChain(i){
-  let evolution = await fetch (`https://pokeapi.co/api/v2/evolution-chain/${i+1}/`)
+  let evolution = await fetch (currentAbilities[i].species.url)
   let evolutionAsJson = await evolution.json();
-  evolutionChain= evolutionAsJson;
-  console.log(evolutionAsJson);
+  let evolutionChain = await fetch (evolutionAsJson.evolution_chain.url);
+  let evolutionChainAsJson = await evolutionChain.json(); 
+  showEvolution();
+  console.log(evolutionChainAsJson);
 }
 
 function render() {

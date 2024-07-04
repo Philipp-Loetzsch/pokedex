@@ -17,6 +17,6 @@ function showAbilities(buttonId, i) {
     document.getElementById('btnStats').classList.remove('active');
     document.getElementById('btnAttacks').classList.remove('active');
     document.getElementById('btnEvolution').classList.add('active');
-     fetchEvolutionChain(i)
+    fetchEvolutionChain(i)
   }
 }
