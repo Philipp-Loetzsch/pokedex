@@ -10,6 +10,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/idStyle.css" />
     <link rel="stylesheet" href="./css/bgColors.css" />
     <link rel="stylesheet" href="./css/overviewCard.css" />
@@ -17,7 +18,6 @@
     <link rel="stylesheet" href="./css/templates.css" />
     <link rel="stylesheet" href="./css/indexMedia.css" />
     <link rel="stylesheet" href="./css/pokeball.css" />
-    <link rel="stylesheet" href="./css/header.css" />
     <script src="script.js"></script>
     <script src="./javascript/buffer.js"></script>
     <script src="./javascript/detailCard.js"></script>
@@ -31,10 +31,10 @@
   <body onload="fetchDataJson()">
     <header>
       <h1>Pokédex</h1>
-      <form id="inputNumber" onsubmit="showAmount(); return false">
-        <div class="search">
-          <div class="input">
+      <form class="search" onsubmit="showAmount(); return false">
+             <div class="d-flex">
              <input
+              class="input"
               type="number"
               min="1"
               max="649"
@@ -45,11 +45,11 @@
               <img src="./assets/img/eye.png" alt="" />
              </button>
           </div>
-          <label>insert number of pokemon(max 649)</label>
-        </div>
+          <label>insert number of pokemon <br> (max 649)</label>
       </form>
       <form class="search" onsubmit="searchPokemon(); return false">
         <input
+          class="input"
           type="text"
           minlength="3"
           id="searchPokeName"
@@ -57,17 +57,18 @@
           required
         />
         <div class="search-btn">
+          <button
+          id="resetFilterBtn"
+          onclick="resetFilter()"
+          type="button"
+          title="reset filter"
+        >
+          <img src="./assets/img/filter-reset.svg" alt="" />
+        </button>
           <button type="submit">
             <img src="./assets/img/eye.png" alt="" />
           </button>
-          <button
-            id="resetFilterBtn"
-            onclick="resetFilter()"
-            type="button"
-            title="reset filter"
-          >
-            <img src="./assets/img/filter-reset.svg" alt="" />
-          </button>
+        
         </div>
       </form>
     </header>

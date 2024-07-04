@@ -1,16 +1,24 @@
 @media screen and (max-width: 750px) {
-  header {
-    flex-direction: column;
-    gap: 20px;
-    padding: 8px;
-  }
+ 
   #content {
     width: 100%;
     align-items: center;
     justify-content: center;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 8px;
+  }
+  .search {
+    flex-direction: row;
+  }
+  .input{
+      font-size: 16px;
+   }
+   
   .poke-detail {
     height: 100%;
     border-radius: 0;
@@ -28,8 +36,11 @@
   .name-detail {
     font-size: 32px;
   }
-  .card-menu button{
+  .card-menu button {
     font-size: 12px;
+  }
+  footer {
+    align-items: center;
   }
 }
 

@@ -27,6 +27,8 @@ main {
   flex: 1;
   box-shadow: 0px -2px 4px 0 rgba(255, 255, 255, 0.5) inset;
   width: 100%;
+  padding-bottom: 24px;
+  box-sizing: border-box;
 }
 footer {
   min-height: 100px;
@@ -34,6 +36,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-left: 10px;
 }
 
 /* headlines */
@@ -49,10 +52,11 @@ h2{
 button {
   cursor: pointer;
   border: none;
+  background-color: transparent;
 }
-/* progress{
+progress{
   accent-color: rgb(252, 0, 0);
-} */
+}
 tr{
   box-shadow: 0 -1px 3px rgba(255, 255, 255, 0.384) inset
 }

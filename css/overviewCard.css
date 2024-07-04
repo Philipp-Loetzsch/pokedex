@@ -1,7 +1,7 @@
 .poke-card {
   height: 300px;
   width: 180px;
-  background-color: black;
+  background-color: rgb(21, 17, 31);
   color: white;
   border-radius: 15px;
   cursor: pointer;

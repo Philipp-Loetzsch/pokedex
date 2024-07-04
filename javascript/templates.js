@@ -3,7 +3,7 @@ function cardContent(i) {
 <div class="poke-card " onclick="loadMovesValuesJson(${i}); ">
            <div class="name">
                <div>#${currentAbilities[i].id}</div>
-               <div>${currentAbilities[i].name}</div>
+               <div>${currentAbilities[i].name.charAt(0).toUpperCase() + currentAbilities[i].name.slice(1)}</div>
            </div>
            <div class="poke-pic bg_${currentAbilities[i].types[0].type.name}">
            <img src="${currentAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
@@ -20,7 +20,7 @@ function detailCardContent(i) {
     <div class="detail-header"> 
      <div class="name-detail">
       <div># ${currentAbilities[i].id}</div>
-      <div>${currentAbilities[i].name}</div>
+      <div>${currentAbilities[i].name.charAt(0).toUpperCase() + currentAbilities[i].name.slice(1)}</div>
      </div>
      <button onclick="closeDetailedCard()">X</button>
     </div>

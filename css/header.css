@@ -1,18 +1,9 @@
 .search{
     display: flex;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    flex-direction: column;
     gap:10px;
-    input{
-        background-color: rgb(88, 128, 201);
-        border-radius: 30px;
-        border: none;
-        padding: 4px;
-        font-size: 24px;
-        text-align: center;
-        color: white;
-    }
     ::placeholder{
         color: white;
     }
@@ -20,6 +11,13 @@
  .input{
     display: flex;
     align-items: center;
+    background-color: rgb(88, 128, 201);
+    border-radius: 30px;
+    border: none;
+    padding: 4px;
+    font-size: 24px;
+    text-align: center;
+    color: white;
 }
 .search-btn{
     display: flex;

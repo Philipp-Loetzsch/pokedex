@@ -1,10 +1,9 @@
 function searchPokemon() {
   let inputName = document.getElementById("searchPokeName");
- /*  */
   currentAbilities = [];
   /*  currentAbilities = pokemonAbilities.filter(name => name.includes(inputName)) */
      pokemonAbilities.forEach((ability) => {
-      if (ability.name.includes(inputName.value)) {
+      if (ability.name.includes(inputName.value.toLowerCase())) {
         currentAbilities.push(ability);
       }
     });  

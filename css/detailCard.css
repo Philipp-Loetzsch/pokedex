@@ -1,5 +1,5 @@
 .poke-detail {
-  background-color: black;
+  background-color: rgb(21, 17, 31);
   height: 900px;
   width: 600px;
   border-radius: 20px;
@@ -51,7 +51,7 @@
     border-radius: 10px;
     padding: 4px;
     background-color: transparent;
-    color: white;
+    color: black;
   }
 }
 .card-menu button:hover {
@@ -96,4 +96,9 @@
   height: 100%;
   padding: 10px;
   box-sizing: border-box;
+}
+
+/* active ability */
+.active{
+  text-shadow: 0 0 20px 0 red;
 }
