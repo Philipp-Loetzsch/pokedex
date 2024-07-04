@@ -18,11 +18,11 @@ function showAmount() {
 }
 
 function showNext(i) {
-  i = (i + 1) % pokemonAbilities.length ;
+  i = (i + 1) % currentAbilities.length;
   loadMovesValuesJson(i);
 }
 
 function showBefore(i) {
-  i = (i - 1 + pokemonAbilities.length) % pokemonAbilities.length;
+  i = (i - 1 + currentAbilities.length) % currentAbilities.length;
   loadMovesValuesJson(i);
 }
