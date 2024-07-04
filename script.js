@@ -1,6 +1,7 @@
 let nextUrl = "";
 /* global Arrays */
 let pokemonAbilities = [];
+let currentAbilities = [];
 let pokemonBuffer = [];
 let moveAbilities = [];
 let pokemonMoves;
@@ -13,7 +14,6 @@ async function fetchDataJson() {
   let responseAsJson = await response.json();
   allPokemons = responseAsJson.results;
   nextUrl = responseAsJson.next;
-  console.log(responseAsJson.next);
   fetchCardValuesJson(allPokemons);
 }
 
@@ -23,7 +23,9 @@ async function fetchCardValuesJson(allPokemons) {
     let allAbilitiesAsJson = await allAbilities.json();
     pokemonAbilities.push(allAbilitiesAsJson);
   }
-  init();
+  currentAbilities = pokemonAbilities;
+  console.log(pokemonAbilities);
+  render();
   bufferNextPokemon();
 }
 
@@ -38,10 +40,8 @@ async function fetchMoveAbilities() {
     clearTimeout(loadingScreenTimeout)
     let moveAbilitiesAsJson = await abilitieOfMove.json();
     moveAbilities.push(moveAbilitiesAsJson);
-    
     if (i === 3) {
       break;
-    
     }  
    
   }
@@ -56,10 +56,10 @@ async function fetchEvolutionChain(i){
   console.log(evolutionAsJson);
 }
 
-function init() {
+function render() {
   let content = document.getElementById(`content`);
   content.innerHTML = "";
-  for (i = 0; i < pokemonAbilities.length; i++) {
+  for (i = 0; i < currentAbilities.length; i++) {
     content.innerHTML += cardContent(i);
     showType(i);
   }
@@ -69,7 +69,7 @@ function init() {
 function showType(i) {
   let poketype = document.getElementById(`type${i}`);
   poketype.innerHTML = "";
-  for (j = 0; j < pokemonAbilities[i].types.length; j++) {
-    poketype.innerHTML += `<div>${pokemonAbilities[i].types[j].type.name}</div>`;
+  for (j = 0; j < currentAbilities[i].types.length; j++) {
+    poketype.innerHTML += `<div>${currentAbilities[i].types[j].type.name}</div>`;
   }
 }

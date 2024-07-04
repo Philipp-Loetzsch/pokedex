@@ -22,11 +22,11 @@
     <script src="./javascript/buffer.js"></script>
     <script src="./javascript/detailCard.js"></script>
     <script src="./javascript/templates.js"></script>
-    <script src="./javascript/filter.js"></script>
     <script src="./javascript/buttonsShow.js"></script>
     <script src="./javascript/abilities.js"></script>
     <script src="./javascript/abilities/stats.js"></script>
     <script src="./javascript/abilities/attacks.js"></script>
+    <script src="./javascript/filter.js"></script>
   </head>
   <body onload="fetchDataJson()">
     <header>
@@ -34,31 +34,41 @@
       <form id="inputNumber" onsubmit="showAmount(); return false">
         <div class="search">
           <div class="input">
-          <input
-            type="number"
-            min="1"
-            max="649"
-            id="amountOfPokemon"
-            placeholder="#No"
-            required
-          />
-          <button type="submit" title="Anzeigen">
-            <img src="./assets/img/eye.png" alt="" />
-          </button>
+             <input
+              type="number"
+              min="1"
+              max="649"
+              id="amountOfPokemon"
+              placeholder="#No"
+              required/>
+             <button type="submit" title="show">
+              <img src="./assets/img/eye.png" alt="" />
+             </button>
           </div>
-          <label>
-            <span>insert number of pokemon </span>
-            <span>(max 649)</span></label>
+          <label>insert number of pokemon(max 649)</label>
         </div>
       </form>
-      <form onsubmit="return false" class="search">
+      <form class="search" onsubmit="searchPokemon(); return false">
         <input
           type="text"
           minlength="3"
-          id="searchPokemon"
+          id="searchPokeName"
           placeholder="enter search"
+          required
         />
-        <button><img src="./assets/img/eye.png" alt="" /></button>
+        <div class="search-btn">
+          <button type="submit">
+            <img src="./assets/img/eye.png" alt="" />
+          </button>
+          <button
+            id="resetFilterBtn"
+            onclick="resetFilter()"
+            type="button"
+            title="reset filter"
+          >
+            <img src="./assets/img/filter-reset.svg" alt="" />
+          </button>
+        </div>
       </form>
     </header>
     <main>
@@ -68,7 +78,11 @@
           <div class="pokeball"></div>
         </div>
       </section>
-      <section id="detailContent" class="d-none" onclick="closeDetailedCard()"></section>
+      <section
+        id="detailContent"
+        class="d-none"
+        onclick="closeDetailedCard()"
+      ></section>
       <button id="showMore" onclick="showMore()">+</button>
     </main>
     <footer>

@@ -9,6 +9,4 @@ async function bufferNextPokemon() {
       pokemonBuffer.push(bufferAbilitiesAsJson);
     }
     document.getElementById("showMore").disabled = false;
-  
-    console.log(pokemonBuffer);
   }

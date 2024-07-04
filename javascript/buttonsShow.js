@@ -5,7 +5,7 @@ async function showMore() {
     pokemonAbilities.push(cut);
   }
   bufferNextPokemon();
-  init();
+  render();
 }
 
 function showAmount() {

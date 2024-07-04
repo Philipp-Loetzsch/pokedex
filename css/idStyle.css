@@ -9,6 +9,16 @@
     align-items: center;
   }
 }
+#resetFilterBtn{
+  background-color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  img{
+    width: 100%;
+  
+  }
+}
 
 #content {
   max-width: 2000px;

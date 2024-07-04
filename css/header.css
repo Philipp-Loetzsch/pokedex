@@ -3,8 +3,9 @@
     align-items: center;
     text-align: center;
     flex-direction: column;
+    gap:10px;
     input{
-        background-color: rgb(198, 145, 214);
+        background-color: rgb(88, 128, 201);
         border-radius: 30px;
         border: none;
         padding: 4px;
@@ -15,12 +16,12 @@
     ::placeholder{
         color: white;
     }
-    button{
-        background-color: transparent;
-        border:none;
-     }
 }
-.input{
+ .input{
     display: flex;
     align-items: center;
 }
+.search-btn{
+    display: flex;
+    align-items: center;
+}  

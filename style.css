@@ -15,7 +15,6 @@ header {
   top: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 24px;
   box-sizing: border-box;
   box-shadow: 0 2px 14px 0 rgba(255, 255, 255, 0.5);
@@ -49,6 +48,8 @@ h2{
 /* all buttons */
 button {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 progress{
   accent-color: red;
