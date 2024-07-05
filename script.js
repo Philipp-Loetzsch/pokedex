@@ -5,7 +5,7 @@ let currentAbilities = [];
 let pokemonBuffer = [];
 let moveAbilities = [];
 let pokemonMoves;
-let evolutionChain;
+let  pokemonEvolution;
 /* global Numbers */
 let count = 0;
 
@@ -50,12 +50,13 @@ async function fetchMoveAbilities() {
 }
 
 async function fetchEvolutionChain(i){
+  document.getElementById("loadingScreen").classList.remove("d-none");
   let evolution = await fetch (currentAbilities[i].species.url)
   let evolutionAsJson = await evolution.json();
   let evolutionChain = await fetch (evolutionAsJson.evolution_chain.url);
-  let evolutionChainAsJson = await evolutionChain.json(); 
-  showEvolution();
-  console.log(evolutionChainAsJson);
+  let evolutionChainAsJson = await evolutionChain.json();
+  pokemonEvolution = evolutionChainAsJson.chain;
+  getDataEvolution();
 }
 
 function render() {

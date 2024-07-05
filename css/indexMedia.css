@@ -2,6 +2,9 @@
   .card-menu button {
     font-size: 12px;
   }
+  h3{
+    font-size: 12px;
+   }
 }
 @media screen and (max-width: 750px) {
  

@@ -102,6 +102,22 @@
   font-size: 24px;
 }
 
+/* evolution */
+.evolution{
+
+  display: flex;
+  flex-direction: column;
+  img{
+    object-fit: scale-down;
+  }
+
+}
+.imgEvolve{
+  display: flex;
+  height: 150px;
+  align-items: end;
+}
+
 /* active ability */
 .active{
   color: white;

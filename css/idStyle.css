@@ -54,6 +54,8 @@
   border-radius: 20px;
   height: 40%;
   overflow: hidden;
+  display: flex;
+  justify-content: space-around;
   
 }
 #stats {
