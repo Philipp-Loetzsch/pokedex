@@ -1,3 +1,5 @@
+let pokemonBuffer = [];
+
 async function bufferNextPokemon() {
     document.getElementById("showMore").disabled = true;
     let buffer = await fetch(nextUrl);

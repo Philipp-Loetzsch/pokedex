@@ -9,7 +9,6 @@ function showAttacks() {
   }
 
   function loadAttacks(){
-   /*  let pokeMove = pokemonMoves[i] */
     let attacks = document.getElementById('attacks')
     for (j = 0; j< pokemonMoves.length; j++){
      let pokeAttackName = pokemonMoves[j].move.name;

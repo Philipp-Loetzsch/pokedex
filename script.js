@@ -1,12 +1,9 @@
 let nextUrl = "";
-/* global Arrays */
 let pokemonAbilities = [];
 let currentAbilities = [];
-let pokemonBuffer = [];
 let moveAbilities = [];
 let pokemonMoves;
-let  pokemonEvolution;
-/* global Numbers */
+let pokemonEvolution;
 let count = 0;
 
 async function fetchDataJson() {
@@ -24,7 +21,6 @@ async function fetchCardValuesJson(allPokemons) {
     pokemonAbilities.push(allAbilitiesAsJson);
   }
   currentAbilities = pokemonAbilities;
-  console.log(pokemonAbilities);
   render();
   bufferNextPokemon();
 }

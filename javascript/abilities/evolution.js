@@ -1,50 +1,46 @@
-let speciesArray =[];
-let pokemonEvolutionImg =[];
+let speciesArray = [];
+let pokemonEvolutionImg = [];
 
-async function getDataEvolution(){
-      console.log(pokemonEvolution);
-    speciesArray=[];
-    pokemonEvolutionImg=[];
-    extractSpecies(pokemonEvolution);
-    for(i = 0; i < speciesArray.length; i++){
-    let species = await fetch(speciesArray[i].url)
+async function getDataEvolution() {
+  speciesArray = [];
+  pokemonEvolutionImg = [];
+  extractSpecies(pokemonEvolution);
+  for (i = 0; i < speciesArray.length; i++) {
+    let species = await fetch(speciesArray[i].url);
     let speciesAsJson = await species.json();
-    let evolutionImg = await fetch(speciesAsJson.varieties[0].pokemon.url)
-    let evolutionImgAsJson = await evolutionImg.json()
-    pokemonEvolutionImg.push(evolutionImgAsJson.sprites.other.showdown.front_default)
-   }
-   document.getElementById("loadingScreen").classList.add("d-none");
-   showEvolution();
-  
+    let evolutionImg = await fetch(speciesAsJson.varieties[0].pokemon.url);
+    let evolutionImgAsJson = await evolutionImg.json();
+    pokemonEvolutionImg.push(
+      evolutionImgAsJson.sprites.other.showdown.front_default
+    );
   }
-
-
-function extractSpecies(evolution) {
-    if (evolution.species) {
-        speciesArray.push({
-            name: evolution.species.name,
-            url: evolution.species.url
-        });
-    }
-    if (evolution.evolves_to && evolution.evolves_to.length > 0) {
-        for (let nextEvolution of evolution.evolves_to) {
-            extractSpecies(nextEvolution, speciesArray);
-        }
-    }
-    return speciesArray;
+  document.getElementById("loadingScreen").classList.add("d-none");
+  showEvolution();
 }
 
-function showEvolution(){
-for(i = 0; i< speciesArray.length; i++){
-document.getElementById('abilities').innerHTML += /* html */ `
+function extractSpecies(evolution) {
+  if (evolution.species) {
+    speciesArray.push({
+      name: evolution.species.name,
+      url: evolution.species.url,
+    });
+  }
+  if (evolution.evolves_to && evolution.evolves_to.length > 0) {
+    for (let nextEvolution of evolution.evolves_to) {
+      extractSpecies(nextEvolution, speciesArray);
+    }
+  }
+  return speciesArray;
+}
+
+function showEvolution() {
+  for (i = 0; i < speciesArray.length; i++) {
+    document.getElementById("abilities").innerHTML += /* html */ `
     <div class="evolution">
         <h3>${speciesArray[i].name.charAt(0).toUpperCase() + speciesArray[i].name.slice(1)}</h3>
         <div class="imgEvolve">
             <img src="${pokemonEvolutionImg[i]}" alt="">
         </div>
-    </div>
-`
+    </div>`;
+  }
 }
-}
-
-

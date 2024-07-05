@@ -2,12 +2,14 @@
   .card-menu button {
     font-size: 12px;
   }
-  h3{
+  h3 {
     font-size: 12px;
-   }
+  }
+  #abilities {
+    overflow-y: scroll;
+  }
 }
 @media screen and (max-width: 750px) {
- 
   #content {
     width: 100%;
     align-items: center;
@@ -23,10 +25,10 @@
   .search {
     flex-direction: row;
   }
-  .input{
-      font-size: 16px;
-   }
-   
+  .input {
+    font-size: 16px;
+  }
+
   .poke-detail {
     height: 100%;
     border-radius: 0;
@@ -47,10 +49,10 @@
   .progress-bar {
     font-size: 16px;
   }
-  #stats{
+  #stats {
     font-size: 16px;
   }
- 
+
   footer {
     align-items: center;
   }
