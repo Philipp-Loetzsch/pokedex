@@ -16,21 +16,20 @@ function showAttacks() {
      if (moveAbilities[j].power == null){
       pokeAttackPower = 0;
      }
-     let pokeAttackPp = moveAbilities[j].pp;
+    
      let pokeAttackDescription = moveAbilities[j].flavor_text_entries[4].flavor_text;
-     attacks.innerHTML += loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackPp, pokeAttackDescription );
+     attacks.innerHTML += loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackDescription );
      if (j === 3){
       break
      }
     }  
   }
 
-  function loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackPp, pokeAttackDescription){
+  function loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackDescription){
     return /* html */ `
     <tr class="stat-content">
       <th> <h2>${pokeAttackName}</h2> 
       <span>power: ${pokeAttackPower}</span> 
-      <span>pp: ${pokeAttackPp}</span> </th>
       <td> <span class="description">${pokeAttackDescription}</span> </td> 
     </tr>`;
   }

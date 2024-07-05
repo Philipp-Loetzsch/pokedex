@@ -25,12 +25,15 @@ function extractSpecies(evolution) {
       url: evolution.species.url,
     });
   }
+  checkOfEvolutions(evolution); 
+}
+
+function checkOfEvolutions(evolution){
   if (evolution.evolves_to && evolution.evolves_to.length > 0) {
     for (let nextEvolution of evolution.evolves_to) {
-      extractSpecies(nextEvolution, speciesArray);
+      extractSpecies(nextEvolution);
     }
   }
-  return speciesArray;
 }
 
 function showEvolution() {

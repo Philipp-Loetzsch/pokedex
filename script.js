@@ -27,7 +27,6 @@ async function fetchCardValuesJson(allPokemons) {
 
 async function fetchMoveAbilities() {
   moveAbilities = [];
-
   for (i = 0; i < pokemonMoves.length; i++) {
     let loadingScreenTimeout = setTimeout(() => {
       document.getElementById("loadingScreen").classList.remove("d-none")
@@ -39,7 +38,6 @@ async function fetchMoveAbilities() {
     if (i === 3) {
       break;
     }  
-   
   }
   document.getElementById("loadingScreen").classList.add("d-none")
   showAttacks();

@@ -6,7 +6,7 @@ function cardContent(i) {
                <div>${currentAbilities[i].name.charAt(0).toUpperCase() + currentAbilities[i].name.slice(1)}</div>
            </div>
            <div class="poke-pic bg_${currentAbilities[i].types[0].type.name}">
-           <img src="${currentAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
+           <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${currentAbilities[i].id}.png" alt=""> 
            </div>
            <div class="poke-type" id="type${i}"></div>
        </div>
@@ -25,7 +25,7 @@ function detailCardContent(i) {
      <button onclick="closeDetailedCard()">X</button>
     </div>
     <div class="poke-pic-detail bg_${currentAbilities[i].types[0].type.name}">
-    <img src="${currentAbilities[i].sprites.other.dream_world.front_default}" alt=""> 
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${currentAbilities[i].id}.png" alt=""> 
     </div>
     <div class="card-menu bg_${currentAbilities[i].types[0].type.name}"> 
         <button id="btnStats" onclick="showAbilities('0',${i})" >Stats</button>

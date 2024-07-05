@@ -5,6 +5,7 @@ function showAbilities(buttonId, i) {
   showAbilitienNumber = buttonId;
   if (showAbilitienNumber == 0) {
     document.getElementById('btnStats').classList.add('active');
+    document.getElementById('btnEvolution').classList.remove('active');
     document.getElementById('btnAttacks').classList.remove('active');
     showStats(i);
   } else if (showAbilitienNumber == 1) {

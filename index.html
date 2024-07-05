@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="./css/overviewCard.css" />
     <link rel="stylesheet" href="./css/detailCard.css" />
     <link rel="stylesheet" href="./css/templates.css" />
-    <link rel="stylesheet" href="./css/scrollbar.css">
+    <link rel="stylesheet" href="./css/scrollbar.css" />
     <link rel="stylesheet" href="./css/indexMedia.css" />
     <link rel="stylesheet" href="./css/pokeball.css" />
-   
+
     <script src="script.js"></script>
     <script src="./javascript/buffer.js"></script>
     <script src="./javascript/detailCard.js"></script>
@@ -35,20 +35,21 @@
     <header>
       <h1>Pokédex</h1>
       <form class="search" onsubmit="showAmount(); return false">
-             <div class="d-flex">
-             <input
-              class="input"
-              type="number"
-              min="1"
-              max="649"
-              id="amountOfPokemon"
-              placeholder="#No"
-              required/>
-             <button type="submit" title="show">
-              <img src="./assets/img/lupe.svg" alt="" />
-             </button>
-          </div>
-          <label>show from pokemon number <br> (max 649)</label>
+        <label>show from pokemon number</label>
+        <div class="d-flex">
+          <input
+            class="input"
+            type="number"
+            min="1"
+            max="1302"
+            id="amountOfPokemon"
+            placeholder="#No"
+            required
+          />
+          <button type="submit" title="show">
+            <img class="w-100" src="./assets/img/lupe.svg" alt="" />
+          </button>
+        </div>
       </form>
       <form class="search" onsubmit="searchPokemon(); return false">
         <input
@@ -56,22 +57,22 @@
           type="text"
           minlength="3"
           id="searchPokeName"
+          
           placeholder="enter pokename"
           required
         />
         <div class="search-btn">
           <button
-          id="resetFilterBtn"
-          onclick="resetFilter()"
-          type="button"
-          title="reset filter"
-        >
-          <img src="./assets/img/filter-reset.svg" alt="" />
-        </button>
-          <button type="submit">
-            <img src="./assets/img/lupe.svg" alt="" />
+            id="resetFilterBtn"
+            onclick="resetFilter()"
+            type="button"
+            title="reset filter"
+          >
+            <img class="w-100" src="./assets/img/filter-reset.svg" alt="" />
           </button>
-        
+          <button type="submit" title="search Pokemon">
+            <img class="w-100" src="./assets/img/lupe.svg" alt="" />
+          </button>
         </div>
       </form>
     </header>
@@ -88,6 +89,9 @@
         onclick="closeDetailedCard()"
       ></section>
       <button id="showMore" onclick="showMore()">+</button>
+      <div id="upToStart">
+      <a href="#" title="up to start"><img src="./assets/img/arrow--up.svg" alt=""></a>
+      </div>
     </main>
     <footer>
       <span>&copy; 2024 Philipp Lötzsch</span>
