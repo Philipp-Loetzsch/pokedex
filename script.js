@@ -46,12 +46,15 @@ async function fetchMoveAbilities() {
 }
 
 async function fetchEvolutionChain(i){
-  document.getElementById("loadingScreen").classList.remove("d-none");
+  let evolutionScreenTimeout = setTimeout(() => 
+    {document.getElementById("loadingScreen").classList.remove("d-none")
+      }, 50);
   let evolution = await fetch (currentAbilities[i].species.url)
   let evolutionAsJson = await evolution.json();
   let evolutionChain = await fetch (evolutionAsJson.evolution_chain.url);
   let evolutionChainAsJson = await evolutionChain.json();
   pokemonEvolution = evolutionChainAsJson.chain;
+  clearTimeout(evolutionScreenTimeout)
   getDataEvolution();
 }
 
