@@ -4,6 +4,7 @@ async function bufferNextPokemon() {
   bufferDone = false;
   document.getElementById("showMore").disabled = true;
   document.getElementById("imgAmountSearch").src = "./assets/img/sanduhr.gif";
+  document.getElementById("amountBtn").disabled = true;
   let buffer = await fetch(nextUrl);
   let bufferAsJson = await buffer.json();
   nextUrl = bufferAsJson.next;
@@ -15,7 +16,7 @@ async function bufferNextPokemon() {
     } catch (error) {
       errorCount = errorCount + 1;
       if (errorCount < 5) {
-        pokemonBuffer=[];
+        pokemonBuffer = [];
         bufferNextPokemon();
       } else {
         location.reload();
@@ -26,4 +27,5 @@ async function bufferNextPokemon() {
   bufferDone = true;
   document.getElementById("imgAmountSearch").src = "./assets/img/lupe.svg";
   document.getElementById("showMore").disabled = false;
+  document.getElementById("amountBtn").disabled = false;
 }
