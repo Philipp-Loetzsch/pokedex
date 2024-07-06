@@ -7,7 +7,11 @@ let pokemonEvolution;
 let count = 0;
 let errorCount = 0;
 
+
 async function fetchDataJson() {
+  progressBar = document.getElementById('progress');
+  progressBar.style.width = 0 + "%";
+  progressBar.innerText = 0 + "%"
   try{
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=30&offset=${count}`);
   let responseAsJson = await response.json();
@@ -29,11 +33,13 @@ async function fetchDataJson() {
 }
 
 async function fetchCardValuesJson(allPokemons) {
+
   try {
     for (i = 0; i < allPokemons.length; i++) {
       let allAbilities = await fetch(allPokemons[i].url);
       let allAbilitiesAsJson = await allAbilities.json();
       pokemonAbilities.push(allAbilitiesAsJson);
+      initProgressBar(30)
     }
   } catch (error) {
     errorCount= errorCount + 1;
@@ -52,14 +58,15 @@ async function fetchCardValuesJson(allPokemons) {
 
 async function fetchMoveAbilities() {
   moveAbilities = [];
+  progressBar.style.width = 0 +"%";
+  progressBar.innerText = 0 + '%';
   for (i = 0; i < pokemonMoves.length; i++) {
-    let loadingScreenTimeout = setTimeout(() => {
-      document.getElementById("loadingScreen").classList.remove("d-none")
-    }, 20);
+    let loadingScreenTimeout = setTimeout(() => {document.getElementById("loadingScreen").classList.remove("d-none")}, 20);
     let abilitieOfMove = await fetch(pokemonMoves[i].move.url);
     clearTimeout(loadingScreenTimeout)
     let moveAbilitiesAsJson = await abilitieOfMove.json();
     moveAbilities.push(moveAbilitiesAsJson);
+    initProgressBar(4)
     if (i === 3) {
       break;
     }  
@@ -69,6 +76,8 @@ async function fetchMoveAbilities() {
 }
 
 async function fetchEvolutionChain(i){
+  progressBar.style.width = 0 +"%";
+  progressBar.innerText = 0 + '%';
   let evolutionScreenTimeout = setTimeout(() => 
     {document.getElementById("loadingScreen").classList.remove("d-none")
     }, 50);

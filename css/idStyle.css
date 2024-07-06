@@ -12,6 +12,7 @@
   border-radius: 50%;
   object-fit: cover;
   height: 35px;
+  width: 35px;
 }
 #resetFilterBtn {
   border-radius: 50%;
@@ -54,6 +55,24 @@
   height: 100%;
   width: 100%;
 }
+#loadingBar {
+  width: 200px;
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+#progress {
+  font-weight: 800;
+  width: 0;
+  height: 30px;
+  background-color: #25c017;
+  text-align: center;
+  line-height: 30px;
+  color: rgb(7, 7, 7);
+  border-radius: 20px;
+}
+
 #abilities {
   width: 100%;
   border-radius: 20px;
