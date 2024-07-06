@@ -107,15 +107,20 @@
 
   display: flex;
   flex-direction: column;
-  img{
-    object-fit: scale-down;
-  }
-
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 33%;
+  color: black;
 }
 .imgEvolve{
   display: flex;
-  height: 150px;
   align-items: end;
+/*   height: 100px; */
+  img{
+    object-fit: scale-down;
+    height: 100px;
+  }
 }
 
 /* active ability */

@@ -9,6 +9,10 @@ async function showMore() {
 }
 
 function showAmount() {
+  if (!bufferDone) {
+    document.getElementById("imgAmountSearch").src = "./assets/img/sanduhr.gif"
+    return
+  }
   document.getElementById("loadingScreen").classList.remove("d-none");
   let amountOfPokemon = document.getElementById(`amountOfPokemon`);
   count = amountOfPokemon.value - 1;

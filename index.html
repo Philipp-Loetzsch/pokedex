@@ -33,7 +33,7 @@
   </head>
   <body onload="fetchDataJson()">
     <header>
-      <h1>Pokédex</h1>
+      <a id="logo" href="index.html"><h1>Pokédex</h1></a>
       <form class="search" onsubmit="showAmount(); return false">
         <label>show from pokemon number</label>
         <div class="d-flex">
@@ -44,10 +44,11 @@
             max="1302"
             id="amountOfPokemon"
             placeholder="#No"
+            title="max number 1302"
             required
           />
           <button type="submit" title="show">
-            <img class="w-100" src="./assets/img/lupe.svg" alt="" />
+            <img id="imgAmountSearch" class="w-100" src="./assets/img/lupe.svg" alt="" />
           </button>
         </div>
       </form>
@@ -57,7 +58,7 @@
           type="text"
           minlength="3"
           id="searchPokeName"
-          
+          title="enter name of Pokemon"
           placeholder="enter pokename"
           required
         />
