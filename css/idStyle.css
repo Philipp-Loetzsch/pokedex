@@ -60,6 +60,7 @@
   background-color: #f3f3f3;
   border: 1px solid #ccc;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 #progress {
@@ -67,7 +68,8 @@
   width: 0;
   height: 30px;
   background-color: #25c017;
-  text-align: center;
+  display: flex;
+  justify-content: end;
   line-height: 30px;
   color: rgb(7, 7, 7);
   border-radius: 20px;
