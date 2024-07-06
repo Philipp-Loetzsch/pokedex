@@ -11,7 +11,8 @@ async function getDataEvolution() {
     let evolutionImg = await fetch(speciesAsJson.varieties[0].pokemon.url);
     let evolutionImgAsJson = await evolutionImg.json();
     pokemonEvolutionImg.push(evolutionImgAsJson.sprites.other.showdown.front_default);
-    initProgressBarEvolution()
+    speciesArrayLenght = speciesArray.length
+    initProgressBar(pokemonEvolutionImg, speciesArrayLenght)
   }
   document.getElementById("loadingScreen").classList.add("d-none");
   showEvolution();
