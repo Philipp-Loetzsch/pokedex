@@ -36,4 +36,35 @@ function detailCardContent(i) {
     </div>
   </div>
   <button id="switchRight" class="switch" onclick="showNext(${i}); event.stopPropagation()"><img src="./assets/img/arrow-right.svg" alt=""></button>`;
-  }
+}
+
+function loadStatsHtml(j, pokeStatName, pokeStatValue) {
+    return /* html */ `
+      <tr class="stat-content bg_${pokeStatName}">
+        <td class="stat-name"> <span>${pokeStatName}</span> </td>
+        <td class="stat-value"><label for="statBar${j}">${pokeStatValue}</label></td> 
+        <td class="progress-bar"> <progress id="statBar${j}" max="200" value="${pokeStatValue}"></progress> 200</td>
+      </tr>`;
+}
+  
+
+function loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackDescription) {
+    return /* html */ `
+      <tr class="stat-content">
+        <th> <h2>${pokeAttackName}</h2> 
+        <span>power: ${pokeAttackPower}</span> 
+        <td> <span class="description">${pokeAttackDescription}</span> </td> 
+      </tr>`;
+}
+
+function showEvolution() {
+    for (i = 0; i < speciesArray.length; i++) {
+      document.getElementById("abilities").innerHTML += /* html */ `
+      <div class="evolution">
+          <div class="imgEvolve">
+              <img src="${pokemonEvolutionImg[i]}" alt="picture not available">
+          </div>
+          <h3>${speciesArray[i].name.charAt(0).toUpperCase() + speciesArray[i].name.slice(1)}</h3>
+      </div>`;
+    }
+}

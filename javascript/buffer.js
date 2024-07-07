@@ -1,6 +1,7 @@
 let pokemonBuffer = [];
 let bufferDone;
 let btnDisable = ["showMore", "amountBtn"]
+
 async function bufferNextPokemon() {
   bufferDone = false;
   btnDisable.forEach(element => {document.getElementById(element).disabled = true;});
@@ -9,6 +10,10 @@ async function bufferNextPokemon() {
   let buffer = await fetch(nextUrl);
   let bufferAsJson = await buffer.json();
   nextUrl = bufferAsJson.next;
+  bufferAbilities(bufferAsJson);
+}
+
+async function bufferAbilities(bufferAsJson){
   for (i = 0; i < bufferAsJson.results.length; i++) {
     try {
       let bufferAbilities = await fetch(bufferAsJson.results[i].url);

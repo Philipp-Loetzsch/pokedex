@@ -78,29 +78,22 @@ async function fetchEvolutionChain(i){
   let evolutionScreenTimeout = setTimeout(() => 
     {document.getElementById("loadingScreen").classList.remove("d-none")
     }, 50);
-  let evolution = await fetch (currentAbilities[i].species.url)
-  let evolutionAsJson = await evolution.json();
-  let evolutionChain = await fetch (evolutionAsJson.evolution_chain.url);
-  let evolutionChainAsJson = await evolutionChain.json();
-  pokemonEvolution = evolutionChainAsJson.chain;
-  clearTimeout(evolutionScreenTimeout)
+  try {
+    let evolution = await fetch (currentAbilities[i].species.url)
+    let evolutionAsJson = await evolution.json();
+    let evolutionChain = await fetch (evolutionAsJson.evolution_chain.url);
+    let evolutionChainAsJson = await evolutionChain.json();
+    pokemonEvolution = evolutionChainAsJson.chain;
+  } catch (error) {
+    errorCount= errorCount + 1;
+    if(errorCount < 5){
+    fetchEvolutionChain(i);
+    } 
+    else{
+      location.reload();
+    }
+  }
+  errorCount = 0;
+  clearTimeout(evolutionScreenTimeout);
   getDataEvolution();
-}
-
-function render() {
-  let content = document.getElementById(`content`);
-  content.innerHTML = "";
-  for (i = 0; i < currentAbilities.length; i++) {
-    content.innerHTML += cardContent(i);
-    showType(i);
-  }
-  document.getElementById("loadingScreen").classList.add("d-none");
-}
-
-function showType(i) {
-  let poketype = document.getElementById(`type${i}`);
-  poketype.innerHTML = "";
-  for (j = 0; j < currentAbilities[i].types.length; j++) {
-    poketype.innerHTML += `<div class="type bg_${currentAbilities[i].types[j].type.name}">${currentAbilities[i].types[j].type.name}</div>`;
-  }
 }

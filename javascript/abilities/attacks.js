@@ -24,11 +24,4 @@ function loadAttacks() {
   }
 }
 
-function loadAttacksHtml(pokeAttackName, pokeAttackPower, pokeAttackDescription) {
-  return /* html */ `
-    <tr class="stat-content">
-      <th> <h2>${pokeAttackName}</h2> 
-      <span>power: ${pokeAttackPower}</span> 
-      <td> <span class="description">${pokeAttackDescription}</span> </td> 
-    </tr>`;
-}
+

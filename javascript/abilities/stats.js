@@ -17,11 +17,3 @@ function loadStats(i) {
   }
 }
 
-function loadStatsHtml(j, pokeStatName, pokeStatValue) {
-  return /* html */ `
-    <tr class="stat-content bg_${pokeStatName}">
-      <td class="stat-name"> <span>${pokeStatName}</span> </td>
-      <td class="stat-value"><label for="statBar${j}">${pokeStatValue}</label></td> 
-      <td class="progress-bar"> <progress id="statBar${j}" max="200" value="${pokeStatValue}"></progress> 200</td>
-    </tr>`;
-}

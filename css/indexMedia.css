@@ -5,11 +5,8 @@
   h3 {
     font-size: 12px;
   }
-/*   #abilities {
-    overflow-y: scroll;
-  } */
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 780px) {
   #content {
     width: 100%;
     align-items: center;
@@ -77,7 +74,4 @@
     left: 10px;
     top: 40%;
   }
-/*   #abilities {
-    overflow-y: scroll;
-  } */
 }

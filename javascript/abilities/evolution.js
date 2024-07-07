@@ -36,14 +36,3 @@ function checkOfEvolutions(evolution){
   }
 }
 
-function showEvolution() {
-  for (i = 0; i < speciesArray.length; i++) {
-    document.getElementById("abilities").innerHTML += /* html */ `
-    <div class="evolution">
-        <div class="imgEvolve">
-            <img src="${pokemonEvolutionImg[i]}" alt="picture not available">
-        </div>
-        <h3>${speciesArray[i].name.charAt(0).toUpperCase() + speciesArray[i].name.slice(1)}</h3>
-    </div>`;
-  }
-}

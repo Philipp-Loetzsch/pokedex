@@ -9,10 +9,6 @@ async function showMore() {
 }
 
 function showAmount() {
-  if (!bufferDone) {
-    document.getElementById("imgAmountSearch").src = "./assets/img/sanduhr.gif"
-    return
-  }
   pokemonAbilities = [];
   pokemonBuffer = [];
   document.getElementById("loadingScreen").classList.remove("d-none");
