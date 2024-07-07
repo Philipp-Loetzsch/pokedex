@@ -24,5 +24,3 @@ function showType(i) {
     poketype.innerHTML += `<div class="type bg_${currentAbilities[i].types[j].type.name}">${currentAbilities[i].types[j].type.name}</div>`;
   }
 }
-
-

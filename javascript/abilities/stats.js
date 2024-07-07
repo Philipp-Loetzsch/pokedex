@@ -16,4 +16,3 @@ function loadStats(i) {
     stats.innerHTML += loadStatsHtml(j, pokeStatName, pokeStatValue);
   }
 }
-

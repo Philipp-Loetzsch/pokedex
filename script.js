@@ -32,7 +32,6 @@ async function fetchDataJson() {
 }
 
 async function fetchCardValuesJson(allPokemons) {
-
   try {
     for (i = 0; i < allPokemons.length; i++) {
       let allAbilities = await fetch(allPokemons[i].url);
